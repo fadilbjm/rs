@@ -45,11 +45,11 @@
         <div class="row">
             <div class="col-md-3 bg-hitam text-white text-center">
                <!-- menu samping -->
-                <a href="#" class="text-white linkurl">Data Pasien</a>
+                <span><a href="admin/pasien" class="text-white linkurl">Data Pasien</a></span>
                 <hr>
-                Obat-obat
+                <span><a href="#" class="text-white linkurl">Diagnosis</a></span>
                 <hr>
-                Pegawai
+                <span><a href="#" class="text-white linkurl">Pegawai</a></span>
 
             </div>
             <div class="col-md-9">

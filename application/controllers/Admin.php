@@ -17,6 +17,17 @@ class Admin extends CI_Controller {
     public function index()
     {
         $head;
+        $this->load->view('admin/dashboard');
+        
+        $foot;
+    }
+
+    public function pasien()
+    {
+        $data['data']=$this->m->getPasien();
+
+        $head;
+        $this->load->view('admin/pasien', $data);
         $foot;
     }
 
