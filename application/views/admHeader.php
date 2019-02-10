@@ -43,14 +43,15 @@
       <!-- akhir navbar -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 bg-hitam text-white text-center">
-               <!-- menu samping -->
-                <span><a href="admin/pasien" class="text-white linkurl">Data Pasien</a></span>
-                <hr>
-                <span><a href="#" class="text-white linkurl">Diagnosis</a></span>
-                <hr>
-                <span><a href="#" class="text-white linkurl">Pegawai</a></span>
-
+            <div class="col-md-3">
+                <div class="bg-hitam text-white text-center">
+                <!-- menu samping -->
+                    <span><a href="admin/pasien" class="text-white linkurl">Data Pasien</a></span>
+                    <hr>
+                    <span><a href="#" class="text-white linkurl">Diagnosis</a></span>
+                    <hr>
+                    <span><a href="#" class="text-white linkurl">Pegawai</a></span>
+                </div>
             </div>
             <div class="col-md-9">
                 <!-- content here -->

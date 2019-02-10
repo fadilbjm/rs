@@ -8,8 +8,8 @@ class Admin extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $head = $this->load->view('admHeader');
-        $foot = $this->load->view('admFooter');
+        // $head = $this->load->view('admHeader');
+        // $foot = $this->load->view('admFooter');
     }
     
 
@@ -26,9 +26,9 @@ class Admin extends CI_Controller {
     {
         $data['data']=$this->m->getPasien();
 
-        $head;
+        $this->load->view('admHeader');
         $this->load->view('admin/pasien', $data);
-        $foot;
+        // $this->load->view('admFooter');
     }
 
 }
