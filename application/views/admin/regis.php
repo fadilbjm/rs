@@ -39,30 +39,23 @@
                         $rmBef = $d->no_rm;
                         $exp = explode(".", $rmBef);
                         $exp1=$exp[0];$exp2=$exp[1];$exp3=$exp[2];
-                        if ($exp1 >=99) {
-                            echo "hubungi IT, telah membatasi Limit";
+                        if ($exp3 > 0) {
+                            // echo "hubungi IT, telah membatasi Limit";
+                            
+                            $exp3s = $exp3+1;
+                            $imp3 = implode(".",array($exp1,$exp2,$exp3s));
+                            $norm = $imp3;
                         }else{
-                            if ($exp2>=99) {
-                                $exp1s = $exp1+1;
-                                $imp2 = implode(".",array($exp1,$exp1s,".00"));
-                                $norm = $imp2;
-                            }else {
-                                if ($exp3>=99) {
-                                    $exp3s = $exp3+1;
-                                    $imp3 = implode(".",array($exp1,$exp2,$exp1s));
-                                    $norm = $imp3;
-                                }else {
-                                    $norm = "00.00.01";
-                                }
-                            }
+                            
                         }
                     }?>
 
 
             <?php echo form_open('admin/procReg?q=belum');?>
+                    <input type="hidden" name="rm" value="<?php echo $norm;?>">
                 <div class="form-group">
                   <label for="rm">No. Rekam Medis</label>
-                  <input type="text" class="form-control" name="rm" id="rm" aria-describedby="" placeholder="" value="<?php 
+                  <input type="text" class="form-control" name="rms" id="rms" aria-describedby="" placeholder="" value="<?php 
                 echo $norm;
                 }
             ?>" disabled>

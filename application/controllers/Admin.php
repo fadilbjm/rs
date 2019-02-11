@@ -86,6 +86,11 @@ class Admin extends CI_Controller {
         }
     }
     
+    public function tes()
+    {
+        $a = 1;
+        echo substr_count($a,1);
+    }
 
 }
 
