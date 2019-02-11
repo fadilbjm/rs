@@ -33,12 +33,13 @@ class Admin extends CI_Controller {
 
     public function registrasi()
     {
+        $data['data'] = $this->m->getRM();
         $head;
-        $this->load->view('admin/regis');
+        $this->load->view('admin/regis',$data);
         
     }
 
-    function tes()
+    /* function tes()
     {
         $data['data'] = $this->m->getTest()->result();
         foreach ($data['data'] as $d ) {
@@ -60,7 +61,31 @@ class Admin extends CI_Controller {
             }
             
         }
+    } */
+
+    function procReg()
+    {
+        if ($_GET['q']=="belum") {
+            $where = array(
+                'no_rm' => $this->input->post('rm'),
+                'no_ktp'=> $this->input->post('nik'),
+                'nama'  => $this->input->post('nama'),
+                'tgl_lahir'=> $this->input->post('tgl_lahir'),
+                'nama_wali'=> $this->input->post('wali'),
+                'alamat'    => $this->input->post('alamat'),
+                'no_bpjs'   => $this->input->post('bpjs'),
+                'jk'        => $this->input->post('jk'),
+                'telpon'    => $this->input->post('hp')
+            );
+            $this->db->insert('t_pasien', $where);
+            
+            redirect('admin/registrasi');
+            
+        }else{
+            echo "masih dalam pengembangan";
+        }
     }
+    
 
 }
 

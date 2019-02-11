@@ -19,6 +19,15 @@ class M extends CI_Model {
         return $q;
     }
 
+    function getRM()
+    {
+        $this->db->from('t_pasien');
+        $this->db->order_by('no_rm', 'desc');
+        $this->db->limit(1);
+        $q = $this->db->get();
+        return $q;
+    }
+
 }
 
 /* End of file M.php */
