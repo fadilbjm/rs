@@ -1,9 +1,48 @@
-<?php echo form_open("admin/procReg");?>
-<input type="radio" name="reg" id="regis1" onclick="handle(this)" value="sudah">Sudah Terdaftar
-<input type="radio" name="reg" id="regis2" onclick="handle(this)" value="belum">Belum Terdaftar
-<br>
-<input type="text" name="rm" id="nama" disabled>
-<?php echo form_close();?>
+<div class="row">
+    
+    <div class="col-md-6">
+        <div class="jumbotron">
+        <h2>Pasien Terdaftar</h2>
+            <?php echo form_open("admin/procReg?q=sudah");?>
+                <div class="form-group">
+                    <label for="rm">No. Rekam Medis</label>
+                    <input type="text" class="form-control" name="rm" id="rm" aria-describedby="helpId" placeholder="">
+                    <div class="form-group">
+                    <label for="keluhan">Keluhan</label>
+                    <textarea class="form-control" name="keluhan" id="keluhan" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                    <label for="poli">Poli</label>
+                    <select class="form-control" name="poli" id="poli">
+                        <option>Poli Anak</option>
+                        <option>Poli Kandungan</option>
+                    </select>
+                    <div class="form-group">
+                      <label for="dokter">Dokter</label>
+                      <select class="form-control" name="dokter" id="dokter">
+                        <!-- data doketer -->
+                      </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        <?php echo form_close();?>
+        </div>    
+    </div>
+    <div class="col-md-6">
+        <div class="jumbotron">
+                <h2>Pendaftaran Pasien</h2>
+            <?php echo form_open('admin/procReg?q=belum');?>
+                <div class="form-group">
+                  <label for="rm">No. Rekam Medis</label>
+                  <input type="text" class="form-control" name="rm" id="rm" aria-describedby="" placeholder="" value="23" disabled>
+                </div>
+            <?php echo form_close();?>
+        </div>
+        
+    </div>
+</div>
+    
 
 
 

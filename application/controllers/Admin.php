@@ -38,6 +38,30 @@ class Admin extends CI_Controller {
         
     }
 
+    function tes()
+    {
+        $data['data'] = $this->m->getTest()->result();
+        foreach ($data['data'] as $d ) {
+            $nomor = $d->nomor;
+            echo $nomor;
+            echo "<br>";
+            $exp = explode('.', $nomor);
+            $ss =$exp[2];
+            if($ss>=99){
+                $vars=$exp[1]+1;
+                $joins = array($exp[0],$vars,"00");
+                $imps = implode(".",$joins);
+                echo $imps;
+            }else{
+                $aa = $exp[2]+1;
+                $join = array($exp[0],$exp[1],$aa);
+                $imp = implode(".",$join);
+                echo $imp;
+            }
+            
+        }
+    }
+
 }
 
 /* End of file Admin.php */
