@@ -8,7 +8,7 @@ class Admin extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $head = $this->load->view('admHeader');
+        // $head = $this->load->view('admHeader');
         // $foot = $this->load->view('admFooter');
     }
     
@@ -16,10 +16,10 @@ class Admin extends CI_Controller {
     
     public function index()
     {
-        $head;
+        $this->load->view('admHeader');
         $this->load->view('admin/dashboard');
+        $this->load->view('admFooter');
         
-        $foot;
     }
 
     public function pasien()
@@ -34,7 +34,7 @@ class Admin extends CI_Controller {
     public function registrasi()
     {
         $data['data'] = $this->m->getRM();
-        $head;
+        $this->load->view('admHeader');
         $this->load->view('admin/regis',$data);
         
     }
@@ -88,8 +88,14 @@ class Admin extends CI_Controller {
     
     public function tes()
     {
-        $a = 1;
-        echo substr_count($a,1);
+        $a = explode(".","00.00.12");
+        $b = $a[2]+1;
+        if(strlen($b)<=1){
+            $b = "0".$b;
+            echo $b;
+        }
+        
+        echo "<br>".implode(".",array($a[0],$a[1],$b));
     }
 
 }

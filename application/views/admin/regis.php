@@ -39,14 +39,37 @@
                         $rmBef = $d->no_rm;
                         $exp = explode(".", $rmBef);
                         $exp1=$exp[0];$exp2=$exp[1];$exp3=$exp[2];
-                        if ($exp3 > 0) {
-                            // echo "hubungi IT, telah membatasi Limit";
+                        if ($exp3 >= 99) {
                             
-                            $exp3s = $exp3+1;
-                            $imp3 = implode(".",array($exp1,$exp2,$exp3s));
-                            $norm = $imp3;
+                            if($exp2 >=99){
+                                if($exp1 >= 99){
+                                    echo "hubungi IT, telah membatasi Limit";
+                                }else {
+                                    $exp1s = $exp1+1;
+                                    if(strlen($exp1s)<=1){
+                                        $exp1s = "0".$exp1s;
+                                    }
+                                    $imp1 = implode(".",array($exp1s,"00","00"));
+                                    $norm = $imp1;
+                                }
+                            }else {
+                                $exp2s = $exp2+1;
+                                    if(strlen($exp2s)<=1){
+                                        $exp2s = "0".$exp2s;
+                                    }
+                                    $imp2 = implode(".",array($exp1,$exp2s,"00"));
+                                    $norm = $imp2;
+                            }
+                            /* $exps = $exp2+1;
+                            $imp2 = implode(".",array($exp1,$exp2s,"00"));
+                            $norm = $imp2; */
                         }else{
-                            
+                            $exp3s = $exp3+1;
+                                    if(strlen($exp3s)<=1){
+                                        $exp3s = "0".$exp3s;
+                                    }
+                                    $imp3 = implode(".",array($exp1,$exp2,$exp3s));
+                                    $norm = $imp3;
                         }
                     }?>
 
