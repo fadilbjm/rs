@@ -36,7 +36,7 @@ class M extends CI_Model {
 
     function getNamaPasien($norm)
     {
-        $q = $this->db->get_where('t_pasien',array('nama'=>$norm));
+        $q = $this->db->get_where('t_pasien',array("nama"=>$norm));
         return $q;
     }
     function getDokter()

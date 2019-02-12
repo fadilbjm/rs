@@ -5,6 +5,7 @@
         <h2>Pasien Terdaftar</h2>
             <?php echo form_open("admin/procReg?q=sudah");?>
                 <div class="form-group">
+                    <input type="hidden" name="nama" value="<?php echo $this->uri->segment(4);?>">
                     <label for="rm">No. Rekam Medis</label>
                     <input type="text" class="form-control" name="rm" id="rm" aria-describedby="helpId" placeholder="" value="<?php echo $this->uri->segment(3); ?>">
                     <div class="form-group">
@@ -38,18 +39,19 @@ foreach ($poli->result() as $p ) {
         </div>    
     </div>
     <div class="col-md-6">
-        <div class="jumbotron">
+        <div class="">
                 <h2>Data Keluhan</h2>
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Tanggal</th>
                         <th>No. RM</th>
                         <th>Nama</th>
+                        <th>Keluhan</th>
                         <th>Diagnosa</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="">
                     <?php
                     $diagnosa;
                         foreach ($keluhan->result() as $k) {
@@ -62,9 +64,10 @@ foreach ($poli->result() as $p ) {
                                 <tr>
                                     <td>$k->tgl_periksa</td>
                                     <Td>$k->no_rm</td>
-                                    <td></td>
+                                    <td>$k->nama</td>
+                                    <td>$k->keluhan</td>
                                     $diagnosa
-                            ";
+                            </tr>";
                         }
                     ?>
                 </tbody>

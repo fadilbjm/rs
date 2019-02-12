@@ -85,10 +85,18 @@ class Admin extends CI_Controller {
             redirect('admin/pasien');
             
         }else{
+            $nama="";
             $norm = $this->input->post('rm');
+            $nnama['n'] = $this->m->getNamaPasien($norm);
+            foreach($nnama['n']->result() as $p){
+                $nama = $p->nama;
+                echo $nama;
+            }
+
             $data = array(
                 'id_rajal' => date('ymdhis'),
                 'no_rm' => $norm,
+                'nama' =>$this->input->post("nama"),
                 'keluhan'=> $this->input->post('keluhan'),
                 'dokter'    =>  $this->input->post('dokter'),
                 // 'diagnosa'  => $this->input->post('diagnosa'),

@@ -1,18 +1,18 @@
-<br>
-<div class="text-right">
-  <?php echo form_open('admin/cariPasien','class="form-inline"');?>
+<div class="col-md-3"><hr>
+    <?php echo form_open('admin/cariPasien');?>
    <div class="form-group">
      
      <input type="text"
        class="form-control mr-sm-1" name="cari" id="cari" aria-describedby="helpId" placeholder="Nama">
-       <input type="text"
+       <br><input type="text"
        class="form-control mr-sm-1" name="cari" id="cari" aria-describedby="helpId" placeholder="No. RM">
-       <input type="text"
+       <br><input type="text"
        class="form-control mr-sm-1" name="cari" id="cari" aria-describedby="helpId" placeholder="BPJS">
-     <input type="submit" class="btn btn-primary" value="Cari">
+     <br><input type="submit" class="btn btn-primary" value="Cari">
    </div>
   <?php echo form_close();?>
 </div>
+<div class="col-md-9">
 <hr>
 <table class="table table-md table-responsive">
   <thead class="bg-dark text-white">
@@ -39,7 +39,7 @@
                     <td>$p->nama</td>
                     <td>$p->jk</td>
                     <td>$p->telpon</td>
-                    <td>".anchor(base_url('admin/registrasi/'.$p->no_rm), '<button class="btn btn-sm btn-info">Buat Keluhan</button>')."</td>
+                    <td>".anchor(base_url('admin/registrasi/'.$p->no_rm.'/'.$p->nama), '<button class="btn btn-sm btn-info">Buat Keluhan</button>')."</td>
                     <td>".anchor(base_url('admin/detail/'.$p->id_pasien), '<button class="btn btn-sm btn-info">Detail</button>')."</td>
                     <td>".anchor(base_url('admin/editPasien/'.$p->id_pasien), '<button class="btn btn-sm btn-warning">Edit</button>')."</td>
                     <td>".anchor(base_url('admin/delPasien/'.$p->id_pasien), '<button class="btn btn-sm btn-danger">Hapus</button>')."</td>
@@ -171,6 +171,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
     
     <!-- Optional JavaScript -->
