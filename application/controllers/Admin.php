@@ -34,6 +34,8 @@ class Admin extends CI_Controller {
     public function registrasi()
     {
         $data['data'] = $this->m->getRM();
+        $data['poli'] = $this->m->getPoli();
+        $data['dokter'] = $this->m->getDokter();
         $this->load->view('admHeader');
         $this->load->view('admin/regis',$data);
         
@@ -82,21 +84,26 @@ class Admin extends CI_Controller {
             redirect('admin/registrasi');
             
         }else{
-            echo "masih dalam pengembangan";
+            $norm = $this->input->post('rm');
+            $data = array(
+                'id_rajal' => date('ymdhis'),
+                'no_rm' => $norm,
+                'keluhan'=> $this->input->post('keluhan'),
+                'dokter'    =>  $this->input->post('dokter'),
+                // 'diagnosa'  => $this->input->post('diagnosa'),
+                'poli'      => $this->input->post('poli')
+            );
+            $this->db->insert('t_rajal', $data);
+            redirect('admin/registrasi');
         }
     }
     
     public function tes()
     {
-        $a = explode(".","00.00.12");
-        $b = $a[2]+1;
-        if(strlen($b)<=1){
-            $b = "0".$b;
-            echo $b;
-        }
+        $this->load->view('tes');
         
-        echo "<br>".implode(".",array($a[0],$a[1],$b));
     }
+    
 
 }
 

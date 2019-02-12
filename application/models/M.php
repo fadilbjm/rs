@@ -28,6 +28,23 @@ class M extends CI_Model {
         return $q;
     }
 
+    function getPoli()
+    {
+        $q = $this->db->get("t_poli");
+        return $q;
+    }
+
+    function getNamaPasien($norm)
+    {
+        $q = $this->db->get_where('t_pasien',array('nama'=>$norm));
+        return $q;
+    }
+    function getDokter()
+    {
+        // $w = array('posisi'=>"dokter")
+        $q = $this->db->get_where('t_pegawai',array("posisi"=>"dokter"));
+        return $q;  
+    }
 }
 
 /* End of file M.php */

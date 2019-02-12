@@ -14,13 +14,21 @@
                     <div class="form-group">
                     <label for="poli">Poli</label>
                     <select class="form-control" name="poli" id="poli">
-                        <option>Poli Anak</option>
-                        <option>Poli Kandungan</option>
+                        <?php
+foreach ($poli->result() as $p ) {
+    echo "<option value='$p->nama_poli'>$p->nama_poli</option>";
+}
+                        ?>
                     </select>
                     <div class="form-group">
                       <label for="dokter">Dokter</label>
                       <select class="form-control" name="dokter" id="dokter">
                         <!-- data doketer -->
+                        <?php 
+                        foreach ($dokter->result() as $s ) {
+                            echo "<option value='$s->nama_pegawai'>$s->nama_pegawai</option>";
+                        }
+                        ?>
                       </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
