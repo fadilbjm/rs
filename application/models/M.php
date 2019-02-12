@@ -45,6 +45,12 @@ class M extends CI_Model {
         $q = $this->db->get_where('t_pegawai',array("posisi"=>"dokter"));
         return $q;  
     }
+
+    function getKeluhan()
+    {
+        $q = $this->db->get('t_rajal');
+        return $q;
+    }
 }
 
 /* End of file M.php */

@@ -25,7 +25,7 @@ class Admin extends CI_Controller {
     public function pasien()
     {
         $data['data']=$this->m->getPasien();
-
+        $data['rm'] = $this->m->getRM();
         $this->load->view('admHeader');
         $this->load->view('admin/pasien', $data);
         // $this->load->view('admFooter');
@@ -33,9 +33,10 @@ class Admin extends CI_Controller {
 
     public function registrasi()
     {
-        $data['data'] = $this->m->getRM();
+        
         $data['poli'] = $this->m->getPoli();
         $data['dokter'] = $this->m->getDokter();
+        $data['keluhan'] =$this->m->getKeluhan();
         $this->load->view('admHeader');
         $this->load->view('admin/regis',$data);
         
@@ -81,7 +82,7 @@ class Admin extends CI_Controller {
             );
             $this->db->insert('t_pasien', $where);
             
-            redirect('admin/registrasi');
+            redirect('admin/pasien');
             
         }else{
             $norm = $this->input->post('rm');
@@ -91,7 +92,8 @@ class Admin extends CI_Controller {
                 'keluhan'=> $this->input->post('keluhan'),
                 'dokter'    =>  $this->input->post('dokter'),
                 // 'diagnosa'  => $this->input->post('diagnosa'),
-                'poli'      => $this->input->post('poli')
+                'poli'      => $this->input->post('poli'),
+                'tgl_periksa' =>date('M/d/Y')
             );
             $this->db->insert('t_rajal', $data);
             redirect('admin/registrasi');
@@ -100,7 +102,7 @@ class Admin extends CI_Controller {
     
     public function tes()
     {
-        $this->load->view('tes');
+        
         
     }
     

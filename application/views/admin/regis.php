@@ -6,7 +6,7 @@
             <?php echo form_open("admin/procReg?q=sudah");?>
                 <div class="form-group">
                     <label for="rm">No. Rekam Medis</label>
-                    <input type="text" class="form-control" name="rm" id="rm" aria-describedby="helpId" placeholder="">
+                    <input type="text" class="form-control" name="rm" id="rm" aria-describedby="helpId" placeholder="" value="<?php echo $this->uri->segment(3); ?>">
                     <div class="form-group">
                     <label for="keluhan">Keluhan</label>
                     <textarea class="form-control" name="keluhan" id="keluhan" rows="3"></textarea>
@@ -39,107 +39,36 @@ foreach ($poli->result() as $p ) {
     </div>
     <div class="col-md-6">
         <div class="jumbotron">
-                <h2>Pendaftaran Pasien</h2>
-            <?php
-            $norm;
-                if ($data->num_rows()>0) {
-                    foreach ($data->result() as $d ) {
-                        $rmBef = $d->no_rm;
-                        $exp = explode(".", $rmBef);
-                        $exp1=$exp[0];$exp2=$exp[1];$exp3=$exp[2];
-                        if ($exp3 >= 99) {
-                            
-                            if($exp2 >=99){
-                                if($exp1 >= 99){
-                                    echo "hubungi IT, telah membatasi Limit";
-                                }else {
-                                    $exp1s = $exp1+1;
-                                    if(strlen($exp1s)<=1){
-                                        $exp1s = "0".$exp1s;
-                                    }
-                                    $imp1 = implode(".",array($exp1s,"00","00"));
-                                    $norm = $imp1;
-                                }
-                            }else {
-                                $exp2s = $exp2+1;
-                                    if(strlen($exp2s)<=1){
-                                        $exp2s = "0".$exp2s;
-                                    }
-                                    $imp2 = implode(".",array($exp1,$exp2s,"00"));
-                                    $norm = $imp2;
+                <h2>Data Keluhan</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>No. RM</th>
+                        <th>Nama</th>
+                        <th>Diagnosa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $diagnosa;
+                        foreach ($keluhan->result() as $k) {
+                            if($k->diagnosa === ""){
+                                $diagnosa = "<td class='text-danger'>belum ada diagnosa!</td>";
+                            }else{
+                                $diagnosa = "<td class='text-success'>$k->diagnosa</td>";
                             }
-                            /* $exps = $exp2+1;
-                            $imp2 = implode(".",array($exp1,$exp2s,"00"));
-                            $norm = $imp2; */
-                        }else{
-                            $exp3s = $exp3+1;
-                                    if(strlen($exp3s)<=1){
-                                        $exp3s = "0".$exp3s;
-                                    }
-                                    $imp3 = implode(".",array($exp1,$exp2,$exp3s));
-                                    $norm = $imp3;
+                            echo "
+                                <tr>
+                                    <td>$k->tgl_periksa</td>
+                                    <Td>$k->no_rm</td>
+                                    <td></td>
+                                    $diagnosa
+                            ";
                         }
-                    }?>
-
-
-            <?php echo form_open('admin/procReg?q=belum');?>
-                    <input type="hidden" name="rm" value="<?php echo $norm;?>">
-                <div class="form-group">
-                  <label for="rm">No. Rekam Medis</label>
-                  <input type="text" class="form-control" name="rms" id="rms" aria-describedby="" placeholder="" value="<?php 
-                echo $norm;
-                }
-            ?>" disabled>
-                <hr>
-            <div class="form-group">
-              <label for="nik">NIK</label>
-              <input type="number"
-                class="form-control" name="nik" id="nik" aria-describedby="helpId" placeholder="">
-            </div><hr>
-            <div class="form-group">
-              <label for="nik">Nama</label>
-              <input type="text"
-                class="form-control" name="nama" id="nama" aria-describedby="helpId" placeholder="">
-            </div><hr>
-            
-            <div class="form-group">
-              <label for="tgl_lahir">Tanggal Lahir</label>
-              <input type="date"
-                class="form-control" name="tgl_lahir" id="tgl_lahir" aria-describedby="helpId" placeholder="">
-              
-            </div><hr>
-            <div class="form-group">
-              <label for="nik">Nama wali/suami</label>
-              <input type="text"
-                class="form-control" name="wali" id="wali" aria-describedby="helpId" placeholder="">
-            </div><hr>
-            <div class="form-group">
-              <label for="alamat">Alamat</label>
-              <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
-            </div><hr>
-            <div class="form-group">
-              <label for="bpjs">No. BPJS</label>
-              <input type="text"
-                class="form-control" name="bpjs" id="bpjs" aria-describedby="helpId" placeholder="">
-            </div><hr>
-            <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="jk" id="jk" value="L"> Laki-laki
-                </label>
-            </div>
-            <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="jk" id="jk" value="P"> Perempuan
-                </label>
-            </div><hr>
-            <div class="form-group">
-              <label for="hp">No. HP</label>
-              <input type="text"
-                class="form-control" name="hp" id="hp" aria-describedby="helpId" placeholder="">
-            </div><hr>
-            <button type="submit" class="btn btn-success">Tambahkan</button>
-                </div>
-            <?php echo form_close();?>
+                    ?>
+                </tbody>
+            </table>
         </div>
         
     </div>
