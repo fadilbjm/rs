@@ -54,6 +54,20 @@ class M extends CI_Model {
         return $q;
     }
 
+    function getObat()
+    {
+        $this->db->from('t_obat');
+        $this->db->order_by('id_obat', 'desc');
+        $q = $this->db->get();
+        return $q;
+    }
+
+    function getObatEdit($id)
+    {
+        $idobat = $id;
+        $q = $this->db->get_where("t_obat",array('id_obat'=>$idobat));
+        return $q;
+    }
 }
 
 /* End of file M.php */
