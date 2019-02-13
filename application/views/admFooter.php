@@ -1,6 +1,6 @@
 
                 <!-- end content -->
-                </div>
+                <!-- </div> -->
         </div>
     </div>  
     <!-- Optional JavaScript -->
