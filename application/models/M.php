@@ -36,7 +36,7 @@ class M extends CI_Model {
 
     function getNamaPasien($norm)
     {
-        $q = $this->db->get_where('t_pasien',array("nama"=>$norm));
+        $q = $this->db->get_where('t_pasien',array("no_rm"=>$norm));
         return $q;
     }
     function getDokter()
@@ -48,9 +48,12 @@ class M extends CI_Model {
 
     function getKeluhan()
     {
-        $q = $this->db->get('t_rajal');
+        $this->db->from('t_rajal');
+        $this->db->order_by('id_rajal', 'desc');
+        $q = $this->db->get();
         return $q;
     }
+
 }
 
 /* End of file M.php */

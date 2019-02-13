@@ -96,7 +96,7 @@ class Admin extends CI_Controller {
             $data = array(
                 'id_rajal' => date('ymdhis'),
                 'no_rm' => $norm,
-                'nama' =>$this->input->post("nama"),
+                'nama' =>$nama,
                 'keluhan'=> $this->input->post('keluhan'),
                 'dokter'    =>  $this->input->post('dokter'),
                 // 'diagnosa'  => $this->input->post('diagnosa'),
@@ -106,6 +106,23 @@ class Admin extends CI_Controller {
             $this->db->insert('t_rajal', $data);
             redirect('admin/registrasi');
         }
+    }
+
+    public function updDiag()
+    {
+        $id     = $this->input->post('id');
+        $data = array('diagnosa'=>$this->input->post('diagnosa'));
+        $this->db->where('id_rajal', $id);
+        $this->db->update('t_rajal', $data);
+        
+        redirect('admin/registrasi');
+        
+    }
+
+    public function diag()
+    {
+        
+        $this->load->view('admin/diagnosa');
     }
     
     public function tes()

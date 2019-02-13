@@ -21,10 +21,13 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?php echo base_url('admin');?>">Dashboard</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo base_url('admin/registrasi');?>">Registrasi</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo base_url('admin/pasien');?>">Pasien</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -41,7 +44,7 @@
         </div>
     </nav>
       <!-- akhir navbar -->
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <!-- <div class="col-md-3 seratus">
                 <div class="bg-hitam text-white text-center">
