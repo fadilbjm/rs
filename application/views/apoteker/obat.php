@@ -17,15 +17,57 @@
                 <?php
                     if($obat->num_rows() > 0){
                         foreach($obat->result() as $o){
-                            echo "<tr>
-                                <td scope='row'>$o->id_obat</td>
-                                <td>$o->nama_obat</td>
-                                <td>$o->stok</td>
-                                <td>$o->jenis_obat</td>
-                                <td>$o->harga</td>
-                                <td>".anchor('apoteker/edtObat/'.$o->id_obat, '<button class="btn btn-sm btn-warning">Edit</button>')."
-                                ".anchor('apoteker/delObat/'.$o->id_obat, '<button class="btn btn-sm btn-danger">Hapus</button>')."</td>
-                            </tr>";
+                            echo '<tr>
+                                <td scope="row">'.$o->id_obat.'</td>
+                                <td>'.$o->nama_obat.'</td>
+                                <td>'.$o->stok.'</td>
+                                <td>'.$o->jenis_obat.'</td>
+                                <td>'.$o->harga.'</td>
+                                <td>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-sm btn-warning btn-lg" data-toggle="modal" data-target="#edt">
+  Edit
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="edt" tabindex="-1" role="dialog" aria-labelledby="jdl" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Obat</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            '.form_open('apoteker/edtObat/'.$o->id_obat).'
+            <div class="modal-body text-left">
+                <div class="form-group">
+                  <label for="nama">Nama Obat</label>
+                  <input type="text" class="form-control" name="nama" id="nama" aria-describedby="helpId" value="'.$o->nama_obat.'" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="stok">Stok</label>
+                  <input type="number" class="form-control" name="stok" id="stok" aria-describedby="helpId" value="'.$o->stok.'" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="harga">Harga</label>
+                  <input type="text" class="form-control" name="harga" id="harga" aria-describedby="helpId" value="'.$o->harga.'" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="jenis">Jenis Obat</label>
+                  <input type="text" class="form-control" name="jenis" id="jenis" aria-describedby="helpId" value="'.$o->jenis_obat.'" placeholder="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-primary"  value="Save">
+            </div>
+            '.form_close().'
+        </div>
+    </div>
+</div>
+                                '.anchor('apoteker/delObat/'.$o->id_obat, '<button class="btn btn-sm btn-danger">Hapus</button>').'</td>
+                            </tr>';
                         }
                     }else{
                         echo "<tr><td colspan='6'><pre>Data belum/tidak ditemukan!.</pre></td></tr>";
@@ -33,7 +75,9 @@
                 ?>
             </tbody>
         </table>
-<!-- Button trigger modal -->
+
+
+
 
 
 <!-- Modal -->
@@ -63,7 +107,19 @@
                 </div>
                 <div class="form-group">
                   <label for="jenis">Jenis Obat</label>
-                  <input type="text" class="form-control" name="jenis" id="jenis" aria-describedby="helpId" placeholder="">
+                  <div class="form-group">
+                    <label for="jenis">Jenis Obat</label>
+                    <select class="form-control" name="jenis" id="jenis">
+                      <option>Obat Keras</option>
+                      <option>Obat Bebas</option>
+                      <option>Obat Bebas Terbatas</option>
+                      <option value="">Psikotropika</option>
+                      <option value="">Narkotika</option>
+                      <option value="">Prekursor</option>
+                      <option value="">OHT</option>
+                      
+                    </select>
+                  </div>
                 </div>
             </div>
             <div class="modal-footer">

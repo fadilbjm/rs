@@ -9,6 +9,11 @@ class M extends CI_Model {
         $q = $this->db->get('t_pasien');
         return $q;
     }
+    function getPasiens($no)
+    {
+        $q = $this->db->get_where('t_pasien',array('no_rm'=>$no));
+        return $q;
+    }
 
     function getTest()
     {
@@ -66,6 +71,16 @@ class M extends CI_Model {
     {
         $idobat = $id;
         $q = $this->db->get_where("t_obat",array('id_obat'=>$idobat));
+        return $q;
+    }
+
+    function getKodePembayaran()
+    {
+        $this->db->from('t_semen');
+        $this->db->where('status', "belum");
+        
+        $this->db->order_by('kode_pembayaran', 'desc');
+        $q = $this->db->get();
         return $q;
     }
 }

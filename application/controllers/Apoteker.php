@@ -39,11 +39,39 @@ class Apoteker extends CI_Controller {
     function edtObat()
     {
         $id = $this->uri->segment(3);
+        $data=array(
+            'nama_obat' => $this->input->post('nama'),
+            'stok' => $this->input->post('stok'),
+            'harga' => $this->input->post('harga'),
+            'jenis_obat' => $this->input->post('jenis')
+        );
+
+        $this->db->where('id_obat',$id);
+        $this->db->update('t_obat', $data);
         
-        $data['edt'] = $this->m->getObatEdit($id);
+
+        
+        redirect('apoteker/obat');
+        
+        
+    }
+
+    function delObat()
+    {
+        echo "Hubungi Admin.... .... .... .... ..... ...... ........ .......... .............. .................. .....................";
+    }
+
+    public function tes()
+    {
+        $this->load->view('tes');
+        
+    }
+
+    public function kasir()
+    {
+        $data['kode'] = $this->m->getKodePembayaran();
         $this->load->view('apotHeader');
-        
-        $this->load->view('apoteker/edtobat', $data);
+        $this->load->view('apoteker/kasir', $data);
         $this->load->view('apotFooter');
         
     }
