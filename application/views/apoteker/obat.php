@@ -25,12 +25,12 @@
                                 <td>'.$o->harga.'</td>
                                 <td>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-sm btn-warning btn-lg" data-toggle="modal" data-target="#edt">
+<button type="button" class="btn btn-sm btn-warning btn-lg" data-toggle="modal" data-target="#e'.$o->id_obat.'">
   Edit
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="edt" tabindex="-1" role="dialog" aria-labelledby="jdl" aria-hidden="true">
+<div class="modal fade" id="e'.$o->id_obat.'" tabindex="-1" role="dialog" aria-labelledby="jdl" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -106,25 +106,24 @@
                   <input type="text" class="form-control" name="harga" id="harga" aria-describedby="helpId" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="jenis">Jenis Obat</label>
-                  <div class="form-group">
+                  
                     <label for="jenis">Jenis Obat</label>
                     <select class="form-control" name="jenis" id="jenis">
-                      <option>Obat Keras</option>
-                      <option>Obat Bebas</option>
-                      <option>Obat Bebas Terbatas</option>
-                      <option value="">Psikotropika</option>
-                      <option value="">Narkotika</option>
-                      <option value="">Prekursor</option>
-                      <option value="">OHT</option>
+                      <option value="obat keras">Obat Keras</option>
+                      <option value="obat bebas">Obat Bebas</option>
+                      <option value="obat bebas terbatas">Obat Bebas Terbatas</option>
+                      <option value="psikotropika">Psikotropika</option>
+                      <option value="Narkotika">Narkotika</option>
+                      <option value="prekusor">Prekursor</option>
+                      <option value="oht">OHT</option>
                       
                     </select>
-                  </div>
+                  
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-primary" value="Simpan"></button>
+                <input type="submit" class="btn btn-primary" value="Simpan">
             </div>
             <?php echo form_close();?>
         </div>

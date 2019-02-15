@@ -63,18 +63,41 @@ class Apoteker extends CI_Controller {
 
     public function tes()
     {
-        $this->load->view('tes');
+        echo 4*4;
         
     }
 
     public function kasir()
     {
         $data['kode'] = $this->m->getKodePembayaran();
+        $data['total'] = $this->m->hitungTotal();
         $this->load->view('apotHeader');
         $this->load->view('apoteker/kasir', $data);
         $this->load->view('apotFooter');
         
     }
+
+    function addKasir()
+    {
+        $tipe = $this->input->get('q');
+        if ($tipe === "puyer") {
+            $puyer=$this->input->post("puyer");
+            $pecah = explode(":",$puyer);            
+            
+            $data = array(
+                    'kode_pembayaran'   => $this->input->post('id') ,
+                    'nama_obat' => $pecah[0], 
+                    'banyak'    =>  $banyak,
+                    'subtotal'  =>  $pecah[1],
+                    'status'    =>  'belum'
+                );
+        }elseif ($tipe === "biasa") {
+            echo "lkfasijdlkasf";
+        }else {
+            echo "access forbidden";
+        } 
+        }
+    
 
 }
 

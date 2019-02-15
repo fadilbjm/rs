@@ -83,6 +83,13 @@ class M extends CI_Model {
         $q = $this->db->get();
         return $q;
     }
+
+    function hitungTotal()
+    {
+        $q=$this->db->query("SELECT sum(subtotal) AS total FROM t_semen WHERE status = 'belum'");
+        return $q->row()->total;
+        
+    }
 }
 
 /* End of file M.php */
