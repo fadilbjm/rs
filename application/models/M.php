@@ -90,6 +90,24 @@ class M extends CI_Model {
         return $q->row()->total;
         
     }
+
+    function cekKode()
+    {
+        $q = $this->db->query("SELECT kode_obat FROM t_obat");
+        return $q;
+    }
+
+    function cekKodePemb()
+    {
+        $q = $this->db->query('SELECT * FROM t_semen WHERE status = "sudah" ORDER BY kode_pembayaran DESC LIMIT 1');
+        return $q;
+    }
+
+    ### FUNGSI TEST!!!!!!! ###
+    function tes()
+    {
+        
+    }
 }
 
 /* End of file M.php */

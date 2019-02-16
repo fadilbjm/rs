@@ -109,13 +109,13 @@
                   
                     <label for="jenis">Jenis Obat</label>
                     <select class="form-control" name="jenis" id="jenis">
-                      <option value="obat keras">Obat Keras</option>
-                      <option value="obat bebas">Obat Bebas</option>
-                      <option value="obat bebas terbatas">Obat Bebas Terbatas</option>
-                      <option value="psikotropika">Psikotropika</option>
-                      <option value="Narkotika">Narkotika</option>
-                      <option value="prekusor">Prekursor</option>
-                      <option value="oht">OHT</option>
+                      <option value="1">Obat Bebas</option>
+                      <option value="2">Obat Bebas Terbatas</option>
+                      <option value="3">Obat Keras</option>
+                      <option value="4">Psikotropika</option>
+                      <option value="5">Narkotika</option>
+                      <option value="6">Prekursor</option>
+                      <option value="7">OHT</option>
                       
                     </select>
                   

@@ -1,5 +1,5 @@
 <div class="text-center text-primary">
-    <h3>KASIR APOTEKER</h3>
+    <h3>KASIR APOTEK</h3>
 </div>
 <div class="container">
 <div class="row">
@@ -55,8 +55,7 @@
         </div>
         <button type="submit" class="btn btn-secondary">Tambah</button>
         <?php echo form_close();?>
-    </div>
-    <div class="col-md-3">
+        <hr>
         <?php echo form_open('apoteker/addKasir?q=puyer');?>
         <input type="hidden" name="id" value="<?php echo $kodes;?>">
         <div class="form-group">
@@ -76,8 +75,26 @@
                 <option value="puyer:80000">Obat Puyer Rp. 80.000</option>
             </select>
         </div>
+        <div class="form-group">
+          <label for="banyak">Banyaknya:</label>
+          <input type="number"
+            class="form-control" name="banyak" id="banyak" value="1" aria-describedby="helpId" placeholder="">
+        </div>
         <button type="submit" class="btn btn-secondary">Tambah</button>
+        <?php echo form_close();?>
+    </div>
+    <div class="col-md-3">
+        <?php echo form_open('apoteker/bayar');?>
+        <input type="hidden" name="id" value="<?php echo $kodes;?>">
+        <input type="hidden" name="tot" value="<?php echo $total;?>">
+        <div class="form-group">
+          <label for="uang">Dibayar</label>
+          <input type="number"
+            class="form-control" name="uang" id="uang" aria-describedby="helpId" placeholder="" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Bayar</button>
         <?php echo form_close();?>
     </div>
 </div>
 </div>
+
