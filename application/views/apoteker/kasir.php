@@ -92,9 +92,34 @@
           <input type="number"
             class="form-control" name="uang" id="uang" aria-describedby="helpId" placeholder="" required>
         </div>
-        <button type="submit" class="btn btn-primary">Bayar</button>
+        <button type="submit" class="btn btn-primary" >Bayar</button>
         <?php echo form_close();?>
     </div>
 </div>
+<br>
+<table class="table table-striped ">
+    <thead class="bg-info">
+        <tr>
+            <th>Tanggal</th>
+            <th>Dibayar</th>
+            <th>Total</th>
+            <th>Kembalian</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($pemb->result() as $p ) {
+            echo "<tr>
+                <td>$p->tgl</td>
+                <td>$p->bayar</td>
+                <td>$p->total</td>
+                <td>$p->kembalian</td>
+                <td><a href='".base_url('apoteker/cetak/'.$p->id_pembayaran)."' target='_blank'><button class='btn btn-sm btn-info'>Cetak</button></a></td>
+            </tr>";
+        }
+        ?>
+    </tbody>
+</table>
 </div>
 

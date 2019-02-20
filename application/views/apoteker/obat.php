@@ -92,30 +92,30 @@
             </div>
             <?php echo form_open('apoteker/insObat');?>
             <div class="modal-body text-left">
-                <input type="hidden" name="id" value="<?php echo date('ymdhis');?>">
+                <!-- <input type="hidden" name="id" value="<?php echo date('ymdhis');?>"> -->
                 <div class="form-group">
                   <label for="nama">Nama Obat</label>
-                  <input type="text" class="form-control" name="nama" id="nama" aria-describedby="helpId" placeholder="">
+                  <input type="text" class="form-control" name="nama" id="nama" aria-describedby="helpId" placeholder="" autocomplete="off" required>
                 </div>
                 <div class="form-group">
                   <label for="stok">Stok</label>
-                  <input type="number" class="form-control" name="stok" id="stok" aria-describedby="helpId" placeholder="">
+                  <input type="number" class="form-control" name="stok" id="stok" aria-describedby="helpId" placeholder="" required>
                 </div>
                 <div class="form-group">
                   <label for="harga">Harga</label>
-                  <input type="text" class="form-control" name="harga" id="harga" aria-describedby="helpId" placeholder="">
+                  <input type="text" class="form-control" name="harga" id="harga" aria-describedby="helpId" placeholder="" autocomplete="off" required>
                 </div>
                 <div class="form-group">
                   
                     <label for="jenis">Jenis Obat</label>
                     <select class="form-control" name="jenis" id="jenis">
-                      <option value="1">Obat Bebas</option>
-                      <option value="2">Obat Bebas Terbatas</option>
-                      <option value="3">Obat Keras</option>
-                      <option value="4">Psikotropika</option>
-                      <option value="5">Narkotika</option>
-                      <option value="6">Prekursor</option>
-                      <option value="7">OHT</option>
+                      <option value="Obat Bebas">Obat Bebas</option>
+                      <option value="Obat Bebas Terbatas">Obat Bebas Terbatas</option>
+                      <option value="Obat Keras">Obat Keras</option>
+                      <option value="Psikotropika">Psikotropika</option>
+                      <option value="Narkotika">Narkotika</option>
+                      <option value="Prekursor">Prekursor</option>
+                      <option value="OHT">OHT</option>
                       
                     </select>
                   

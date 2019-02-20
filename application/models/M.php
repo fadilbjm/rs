@@ -102,6 +102,31 @@ class M extends CI_Model {
         $q = $this->db->query('SELECT * FROM t_semen WHERE status = "sudah" ORDER BY kode_pembayaran DESC LIMIT 1');
         return $q;
     }
+    function getJenis($id)
+    {
+        $q = $this->db->query("SELECT kode_obat FROM t_obat");
+        return $q;
+    }
+
+    function cekIdObat($id)
+    {
+        $q = $this->db->get_where('t_obat',array('id_obat'=>$id));
+        return $q;
+    }
+
+    function getPemb()
+    {
+        $this->db->order_by('id_pembayaran', 'desc');
+        
+        $q = $this->db->get('t_pembayaran');
+        return $q;
+    }
+
+    function forCetak()
+    {
+        $q=$this->db->get('t_pembayaran');
+        return $q;
+    }
 
     ### FUNGSI TEST!!!!!!! ###
     function tes()
