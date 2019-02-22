@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/rs/aset/css/bootstrap.css">
     <link rel="stylesheet" href="/rs/aset/css/custom.css">
+    
+	<link rel="stylesheet" href="/rs/aset/css/datatables.css">
   </head>
   <body>
       <!-- navar -->
@@ -21,13 +23,13 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('admin');?>">Dashboard</span></a>
+                    <a class="nav-link" href="<?php echo base_url('bidan');?>">Dashboard</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('admin/registrasi');?>">Registrasi</a>
+                    <a class="nav-link" href="<?php echo base_url('bidan/registrasi');?>">Registrasi RANAP</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('admin/pasien');?>">Pasien</a>
+                    <a class="nav-link" href="<?php echo base_url('bidan/pasien');?>">Data Pasien Ranap</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -49,11 +51,11 @@
             <!-- <div class="col-md-3 seratus">
                 <div class="bg-hitam text-white text-center">
                 <
-                    <span><a href="<?php echo base_url('admin/registrasi');?>" class="text-white linkurl">Registrasi</a></span>
+                    <span><a href="<?php echo base_url('bidan/registrasi');?>" class="text-white linkurl">Registrasi</a></span>
                     <hr>
-                    <span><a href="<?php echo base_url('admin/pasien');?>" class="text-white linkurl">Data Pasien</a></span>
+                    <span><a href="<?php echo base_url('bidan/pasien');?>" class="text-white linkurl">Data Pasien</a></span>
                     <hr>
-                    <span><a href="<?php echo base_url('admin/diagnosa');?>" class="text-white linkurl">Diagnosis</a></span>
+                    <span><a href="<?php echo base_url('bidan/diagnosa');?>" class="text-white linkurl">Diagnosis</a></span>
                     <hr>
                     <span><a href="#" class="text-white linkurl">Pegawai</a></span>
                     <hr>

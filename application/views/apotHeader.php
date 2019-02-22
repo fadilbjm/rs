@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/rs/aset/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/rs/aset/css/custom.css">
+	<link rel="stylesheet" href="/rs/aset/css/datatables.css">
   </head>
   <body>
       <nav class="navbar navbar-expand-md navbar-dark bg-success">

@@ -14,7 +14,7 @@
 </div>
 <div class="col-md-9">
 <hr>
-<table class="table table-md table-responsive">
+<table class="table" id="mytable">
   <thead class="bg-dark text-white">
     <tr>
       <th scope="col">#</th>
@@ -49,9 +49,9 @@
 </tbody>
 
                 <!-- end content copy dari sini -->
-                </div>
+                <!-- </div>
         </div>
-    </div>  
+    </div>   -->
     
     
     <!-- Modal -->

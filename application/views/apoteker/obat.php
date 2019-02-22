@@ -1,6 +1,6 @@
 <div class="container">
     <div class="text-center">
-        <table class="table table-striped">
+        <table class="table table-striped" id="my">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID Obat</th>

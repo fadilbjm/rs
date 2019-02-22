@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/rs/aset/css/bootstrap.css">
     <link rel="stylesheet" href="/rs/aset/css/custom.css">
+    
+	<link rel="stylesheet" href="/rs/aset/css/datatables.css">
   </head>
   <body>
       <!-- navar -->
@@ -21,10 +23,13 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('admin');?>">Dashboard</span></a>
+                    <a class="nav-link" href="<?php echo base_url('admin');?>">Dashboard</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('admin/registrasi');?>">Registrasi</a>
+                    <a class="nav-link" href="<?php echo base_url('admin/registrasirajal');?>">Registrasi RAJAL</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo base_url('admin/registrasiranap');?>">Registrasi RANAP</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo base_url('admin/pasien');?>">Pasien</a>

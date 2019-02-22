@@ -31,7 +31,7 @@ class Admin extends CI_Controller {
         // $this->load->view('admFooter');
     }
 
-    public function registrasi()
+    public function registrasirajal()
     {
         
         $data['poli'] = $this->m->getPoli();
@@ -127,8 +127,38 @@ class Admin extends CI_Controller {
     
     public function tes()
     {
-        
-        
+        ###################################################################################
+        #########                   #####     #######                #####        #########
+        #########                    ###      #######                 ###         #########
+        #########                             #######                             #########
+        ###################################################################################
+                                              #######
+                                              #######
+                                              #######
+                                              #######
+                                              #######
+                                              #######
+                                              #######
+                                            ###########
+                                        ######       ######
+                                        ######       ######
+                                        ######       ######
+    }
+
+    public function registrasiranap()
+    {
+        if($this->uri->segment(3)!= "") 
+        {
+            $this->load->view('admHeader');
+            $this->load->view('admin/ranap');
+            $this->load->view('admFooter');
+            
+        }else {
+            echo "masuk dengan no <b>RM</b>!";
+            
+            header("Refresh:2;url=".base_url('admin/pasien'));
+            
+        }
     }
     
 
