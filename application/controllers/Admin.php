@@ -172,7 +172,7 @@ class Admin extends CI_Controller {
         if($this->uri->segment(3)!= "") 
         {
             $rm = $this->uri->segment(3);
-            $data['data'] = $this->m->getDetail();
+            $data['data'] = $this->m->getDetail($rm);
             $this->load->view('admHeader');
             $this->load->view('ranap/ranap',$data);
             $this->load->view('admFooter');

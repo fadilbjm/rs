@@ -1,11 +1,15 @@
 <!-- <div class="row"> -->
+<?php
+if(isset($data)){
+    foreach($data->result() as $d){
+?>
 <?php echo form_open('admin/addRanap');?>
     <!-- <div class="col-lg-6"> -->
         <div class="jumbotron">
             <div class="form-group">
             <label for="rm">No. RM</label>
             <input type="text"
-                class="form-control form-control-sm" name="rm" id="rm" autocomplete="off" placeholder="">
+                class="form-control form-control-sm" name="rm" id="rm" value="<?php echo $d->no_rm;?>" autocomplete="off" placeholder="">
                 <a href="<?php base_url('admin/pasien');?>"><button>Pilih Pasien Dari Daftar</button></a>
             </div>
             <div class="form-group">
@@ -74,5 +78,8 @@
     <div class="col-md-6">
         
     </div> -->
-<?php echo form_close();?>
+<?php
+        echo form_close();
+    }
+}?>
 <!-- </div> -->
