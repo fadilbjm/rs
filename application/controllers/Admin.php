@@ -21,6 +21,28 @@ class Admin extends CI_Controller {
         $this->load->view('admFooter');
         
     }
+    function get()
+    {
+        $data=array();
+        $datas=$this->m->getPasien();
+        foreach ($datas->result() as $k ) {
+            $data[] = array(
+                $k->no_rm,
+                $k->nama,
+                $k->no_bpjs,
+                $k->jk,
+                $k->telpon,
+                anchor(base_url('admin/registrasirajal/'.$k->no_rm.'/'.$k->nama), '<button class="btn btn-sm btn-info">Buat Rajal</button>').anchor(base_url('admin/registrasiranap/'.$k->no_rm.'/'.$k->nama), '<button class="btn btn-sm btn-info">Buat Ranap</button>')
+            );
+        }
+        $out = array(
+                "recordsTotal"=>$datas->num_rows(),
+                "recordsFiltered"=>$datas->num_rows(),
+                'data'=>$data
+            );
+        echo json_encode($out);
+        
+    }
 
     public function pasien()
     {
@@ -149,8 +171,10 @@ class Admin extends CI_Controller {
     {
         if($this->uri->segment(3)!= "") 
         {
+            $rm = $this->uri->segment(3);
+            $data['data'] = $this->m->getDetail();
             $this->load->view('admHeader');
-            $this->load->view('admin/ranap');
+            $this->load->view('ranap/ranap',$data);
             $this->load->view('admFooter');
             
         }else {

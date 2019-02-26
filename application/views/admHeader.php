@@ -50,19 +50,4 @@
     </nav>
       <!-- akhir navbar -->
     <div class="container">
-        <div class="row">
-            <!-- <div class="col-md-3 seratus">
-                <div class="bg-hitam text-white text-center">
-                <
-                    <span><a href="<?php echo base_url('admin/registrasi');?>" class="text-white linkurl">Registrasi</a></span>
-                    <hr>
-                    <span><a href="<?php echo base_url('admin/pasien');?>" class="text-white linkurl">Data Pasien</a></span>
-                    <hr>
-                    <span><a href="<?php echo base_url('admin/diagnosa');?>" class="text-white linkurl">Diagnosis</a></span>
-                    <hr>
-                    <span><a href="#" class="text-white linkurl">Pegawai</a></span>
-                    <hr>
-                </div>
-            </div> -->
-            <!-- <div class="col-md-9"> -->
-                <!-- content here -->
+        

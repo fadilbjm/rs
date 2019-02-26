@@ -1,61 +1,24 @@
-<div class="col-md-3"><hr>
-    <?php echo form_open('admin/cariPasien');?>
-   <div class="form-group">
-     
-     <input type="text"
-       class="form-control mr-sm-1" name="cari" id="cari" aria-describedby="helpId" placeholder="Nama">
-       <br><input type="text"
-       class="form-control mr-sm-1" name="cari" id="cari" aria-describedby="helpId" placeholder="No. RM">
-       <br><input type="text"
-       class="form-control mr-sm-1" name="cari" id="cari" aria-describedby="helpId" placeholder="BPJS">
-     <br><input type="submit" class="btn btn-primary" value="Cari">
-   </div>
-  <?php echo form_close();?>
-</div>
-<div class="col-md-9">
 <hr>
-<table class="table" id="mytable">
-  <thead class="bg-dark text-white">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">No. RM</th>
-      <th scope="col">No. BPJS</th>
-      <th scope="col">Nama Pasien</th>
-      <th scope="col">Jenis Kelamin</th>
-      <th scope="col">No. HP</th>
-      <th scope="col" colspan="4" class="text-center"><button type="button" class="btn btn-sm btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
-      +Peserta Baru
-    </button></th>
-    </tr>
-  </thead>
-  <tbody>
-      <?php
-        $no = $this->uri->segment(3);
-        foreach ($data->result() as $p ) {
-            echo "<tr>
-                    <th scope='row'>".$no++."</th>
-                    <td>$p->no_rm</td>
-                    <td>$p->no_bpjs</td>
-                    <td>$p->nama</td>
-                    <td>$p->jk</td>
-                    <td>$p->telpon</td>
-                    <td>".anchor(base_url('admin/registrasi/'.$p->no_rm.'/'.$p->nama), '<button class="btn btn-sm btn-info">Buat Keluhan</button>')."</td>
-                    <td>".anchor(base_url('admin/detail/'.$p->id_pasien), '<button class="btn btn-sm btn-info">Detail</button>')."</td>
-                    <td>".anchor(base_url('admin/editPasien/'.$p->id_pasien), '<button class="btn btn-sm btn-warning">Edit</button>')."</td>
-                    <td>".anchor(base_url('admin/delPasien/'.$p->id_pasien), '<button class="btn btn-sm btn-danger">Hapus</button>')."</td>
-            </tr>";
-        }
-      ?>
-</tbody>
+<table id="mytable">
+    <thead>
+        <tr>
+            <th>No. RM</th>
+            <th>Nama</th>
+            <th>No. BPJS</th>
+            <th>Gender</th>
+            <th>No. HP</th>
+            <th><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modelId">+Tambah Pasien</button></th>
+        </tr>
+    </thead>
+    <tbody id="hasil">
+        
+    </tbody>
+</table>
 
-                <!-- end content copy dari sini -->
-                <!-- </div>
-        </div>
-    </div>   -->
-    
-    
-    <!-- Modal -->
-    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+</div>
+
+ <!-- Modal -->
+ <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -163,22 +126,56 @@
                 class="form-control" name="hp" id="hp" aria-describedby="helpId" placeholder="">
             </div><hr>
                 </div>
-          </div>
+          
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-success">Tambahkan</button>            
-            <?php echo form_close();?>
           </div>
+            <?php echo form_close();?>
         </div>
       </div>
     </div>
     </div>
-    
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="/rs/aset/js/jquery.js"></script>
+
+<script src="/rs/aset/js/jquery.js"></script>
+    <script src="/rs/aset/js/datatables.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="/rs/aset/js/bootstrap.js"></script>
     <script src="/rs/aset/js/custom.js"></script>
-  </body>
+	<script type="text/javascript">
+        
+
+
+		$(document).ready(function (){
+			$('#mytable').DataTable({
+                dataLength:5,
+                ajax:'<?php echo base_url('admin/get');?>'
+            });
+            // ambil();
+
+        function ambil(){
+            $.ajax({
+                type: "ajax",
+                url: "<?php echo base_url('admin/get');?>",
+                async: false,
+                dataType: "json",
+                success: function (data) {
+                    var html ="";
+                    var i;
+                    for(i=0;i<data.length;i++){
+                        html += '<tr>'+
+                                '<td>'+data[i].no_rm+'</td>'+
+                                '<td>'+data[i].nama+'</td>'+
+                                '<td>'+data[i].no_bpjs+'</td>'+
+                                '<td>'+data[i].jk+'</td>'+
+                                '<td>'+data[i].telpon+'</td>'+
+                                '</tr>';
+                    }
+                    $('#hasil').html(html);
+                }
+            });
+        }
+		});
+	</script>
+</body>
 </html>
