@@ -31,6 +31,17 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo base_url('admin/registrasiranap');?>">Registrasi RANAP</a>
                 </li>
+                <li class="nav-item active dropdown">
+                    <a class="nav-link dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                                IGD/RANAP
+                            </a>
+                    <div class="dropdown-menu" aria-labelledby="triggerId">
+                        <a href="<?php echo base_url('admin/igdanak');?>" class="dropdown-item">IGN Anak</a>
+                        <a href="<?php echo base_url('admin/igdibu');?>" class="dropdown-item">IGD Ibu</a>
+                        <a href="<?php echo base_url('admin/registrasiRanap');?>" class="dropdown-item">Register Ranap</a>
+                    </div>
+                </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo base_url('admin/pasien');?>">Pasien</a>
                 </li>

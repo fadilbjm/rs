@@ -178,9 +178,9 @@ class Admin extends CI_Controller {
             $this->load->view('admFooter');
             
         }else {
-            echo "masuk dengan no <b>RM</b>!";
-            
-            header("Refresh:2;url=".base_url('admin/pasien'));
+            $this->load->view('admHeader');
+            $this->load->view('ranap/ranap');
+            $this->load->view('admFooter');
             
         }
     }
