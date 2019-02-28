@@ -134,6 +134,12 @@ class M extends CI_Model {
         return $q;
     }
 
+    function getPasienRanap($rm)
+    {
+        $q=$this->db->get_where('t_pasien',array('no_rm'=>$rm));
+        return $q;
+    }
+
     ### FUNGSI TEST!!!!!!! ###
     function tes()
     {

@@ -32,10 +32,10 @@
                     <a class="nav-link" href="<?php echo base_url('Ranap/igdibu');?>">RANAP IGD Ibu</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('Ranap/pasien');?>">Data Pasien Ranap</a>
+                    <a class="nav-link" href="<?php echo base_url('Ranap/pasienranap');?>">Data Pasien Ranap</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('Ranap/datapasien');?>">Data Pasien RS</a>
+                    <a class="nav-link" href="<?php echo base_url('Ranap/pasien');?>">Data Pasien RS</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
