@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bidan extends CI_Controller {
+class Ranap extends CI_Controller {
 
     public function index()
     {
@@ -12,13 +12,13 @@ class Bidan extends CI_Controller {
         
     }
 
-    public function registrasi()
+    public function igdanak()
     {
         $this->load->view('ranapHeader');
-        $this->load->view('ranap/registrasi');
+        $this->load->view('ranap/insIgdAnak');
         $this->load->view('ranapFooter');
     }
 
 }
 
-/* End of file Bidan.php */
+/* End of file Ranap.php */

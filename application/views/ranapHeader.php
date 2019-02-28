@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Bidan &middot; RSB Ibunda</title>
+    <title>Ranap &middot; RSB Ibunda</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,7 +15,7 @@
   <body>
       <!-- navar -->
     <nav class="navbar navbar-expand-md navbar-dark hijau">
-        <a class="navbar-brand" href="#">Bidan</a>
+        <a class="navbar-brand" href="#">Ranap</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,13 +23,19 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('bidan');?>">Dashboard</span></a>
+                    <a class="nav-link" href="<?php echo base_url('Ranap');?>">Dashboard</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('bidan/registrasi');?>">Registrasi RANAP</a>
+                    <a class="nav-link" href="<?php echo base_url('Ranap/igdanak');?>">RANAP IGD Anak</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('bidan/pasien');?>">Data Pasien Ranap</a>
+                    <a class="nav-link" href="<?php echo base_url('Ranap/igdibu');?>">RANAP IGD Ibu</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo base_url('Ranap/pasien');?>">Data Pasien Ranap</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo base_url('Ranap/datapasien');?>">Data Pasien RS</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -47,15 +53,15 @@
     </nav>
       <!-- akhir navbar -->
     <div class="container">
-        <div class="row">
+        <!-- <div class="row"> -->
             <!-- <div class="col-md-3 seratus">
                 <div class="bg-hitam text-white text-center">
                 <
-                    <span><a href="<?php echo base_url('bidan/registrasi');?>" class="text-white linkurl">Registrasi</a></span>
+                    <span><a href="<?php echo base_url('Ranap/registrasi');?>" class="text-white linkurl">Registrasi</a></span>
                     <hr>
-                    <span><a href="<?php echo base_url('bidan/pasien');?>" class="text-white linkurl">Data Pasien</a></span>
+                    <span><a href="<?php echo base_url('Ranap/pasien');?>" class="text-white linkurl">Data Pasien</a></span>
                     <hr>
-                    <span><a href="<?php echo base_url('bidan/diagnosa');?>" class="text-white linkurl">Diagnosis</a></span>
+                    <span><a href="<?php echo base_url('Ranap/diagnosa');?>" class="text-white linkurl">Diagnosis</a></span>
                     <hr>
                     <span><a href="#" class="text-white linkurl">Pegawai</a></span>
                     <hr>
