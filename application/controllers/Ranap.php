@@ -57,6 +57,28 @@ class Ranap extends CI_Controller {
         echo json_encode($out);
             
     }
+    function getranapanak()
+    {
+        $data=array();
+        $datas=$this->m->getRanapAnak();
+        foreach ($datas->result() as $k ) {
+            $data[] = array(
+                $k->tgl_masuk,
+                $k->no_rm,
+                $k->nama_pasien,
+                $k->askes,
+                anchor(base_url('ranap/cetakigd'), '<button class="btn btn-sm btn-info">Cetak IGD</button>')
+            );
+        }
+        $out = array(
+                "recordsTotal"=>$datas->num_rows(),
+                "recordsFiltered"=>$datas->num_rows(),
+                'data'=>$data
+            );
+        echo json_encode($out);
+            
+    }
+
 
 
     function addigdanak()
@@ -75,6 +97,19 @@ class Ranap extends CI_Controller {
         $this->db->insert('t_igdanak', $data);
         
         redirect('ranap/pasienranap');
+        
+    }
+
+    public function pasienranap()
+    {
+        
+        $this->load->view('ranapHeader');
+        $this->load->view('ranap/dataranap');
+        
+    }
+
+    function cetakigd()
+    {
         
     }
 

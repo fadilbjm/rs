@@ -32,7 +32,7 @@ class Admin extends CI_Controller {
                 $k->no_bpjs,
                 $k->jk,
                 $k->telpon,
-                anchor(base_url('admin/registrasirajal/'.$k->no_rm.'/'.$k->nama), '<button class="btn btn-sm btn-info">Buat Rajal</button>').anchor(base_url('admin/registrasiranap/'.$k->no_rm.'/'.$k->nama), '<button class="btn btn-sm btn-info">Buat Ranap</button>')
+                anchor(base_url('admin/registrasirajal/'.$k->no_rm.'/'.$k->nama), '<button class="btn btn-sm btn-info">Buat Rajal</button>')
             );
         }
         $out = array(
@@ -53,7 +53,7 @@ class Admin extends CI_Controller {
         // $this->load->view('admFooter');
     }
 
-    public function registrasirajal()
+    public function registrasi()
     {
         
         $data['poli'] = $this->m->getPoli();
@@ -167,23 +167,6 @@ class Admin extends CI_Controller {
                                         ######       ######
     }
 
-    public function registrasiranap()
-    {
-        if($this->uri->segment(3)!= "") 
-        {
-            $rm = $this->uri->segment(3);
-            $data['data'] = $this->m->getDetail($rm);
-            $this->load->view('admHeader');
-            $this->load->view('ranap/ranap',$data);
-            $this->load->view('admFooter');
-            
-        }else {
-            $this->load->view('admHeader');
-            $this->load->view('ranap/ranap');
-            $this->load->view('admFooter');
-            
-        }
-    }
     
 
 }

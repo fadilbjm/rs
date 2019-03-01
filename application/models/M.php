@@ -140,6 +140,12 @@ class M extends CI_Model {
         return $q;
     }
 
+    function getRanapAnak()
+    {
+        $q = $this->db->get('t_igdanak');
+        return $q;
+    }
+
     ### FUNGSI TEST!!!!!!! ###
     function tes()
     {

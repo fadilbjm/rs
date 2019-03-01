@@ -1,23 +1,34 @@
-<hr>
+<div class="jumbotron">
 <table id="mytable">
-    <thead>
-        <tr>
-            <th>No. RM</th>
-            <th>Nama</th>
-            <th>No. BPJS</th>
-            <th>Gender</th>
-            <th>No. HP</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody id="hasil">
-        
-    </tbody>
+<thead>
+    <tr>
+        <th>Tanggal Masuk</th>
+        <th>No. RM</th>
+        <th>Nama Pasien</th>
+        <th>Askes</th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+
+</tbody>
 </table>
 
+
+
 </div>
-    
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
 
 <script src="/rs/aset/js/jquery.js"></script>
     <script src="/rs/aset/js/datatables.js"></script>
@@ -31,7 +42,7 @@
 		$(document).ready(function (){
 			$('#mytable').DataTable({
                 dataLength:5,
-                ajax:'<?php echo base_url('ranap/get');?>'
+                ajax:'<?php echo base_url('ranap/getranapanak');?>'
             });
             // ambil();
 
