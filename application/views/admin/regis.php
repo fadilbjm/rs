@@ -82,37 +82,7 @@ foreach ($poli->result() as $p ) {
 
 
 
-<!-- Button trigger modal -->
 
-
-<!-- Modal -->
-<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Diagnosa</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-            </div>
-            <?php echo form_open('admin/updDiag');?>
-            <div class="modal-body">
-                        
-
-                        <input type="text" name="id" value="<?php echo $noId;?>">
-                <div class="form-group">
-                  <label for="diagnosa">Diagnosa Dokter:</label>
-                  <textarea class="form-control" name="diagnosa" id="diagnosa" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
-            </div>
-            <?php echo form_close();?>
-        </div>
-    </div>
-</div>
 
                 <!-- end content copy dari sini -->
                 </div>

@@ -18,7 +18,7 @@ class Admin extends CI_Controller {
     {
         $this->load->view('admHeader');
         $this->load->view('admin/dashboard');
-        $this->load->view('admFooter');
+        // $this->load->view('admFooter');
         
     }
     function get()
@@ -32,7 +32,7 @@ class Admin extends CI_Controller {
                 $k->no_bpjs,
                 $k->jk,
                 $k->telpon,
-                anchor(base_url('admin/registrasirajal/'.$k->no_rm.'/'.$k->nama), '<button class="btn btn-sm btn-info">Buat Rajal</button>')
+                anchor(base_url('admin/registrasi/'.$k->no_rm.'/'.$k->nama), '<button class="btn btn-sm btn-info">Buat Rajal</button>')
             );
         }
         $out = array(
@@ -165,8 +165,32 @@ class Admin extends CI_Controller {
                                         ######       ######
                                         ######       ######
                                         ######       ######
+###                                     ####           ####                             ###
+###                                                                                     ###
+####                                                                                   ####
+  ####                                                                                 ####
+  ####                                                                                 ####
+  #######                                                                         #######
+  #######################################################################################
+
     }
 
+    public function getDoc()
+    {
+        $data =array();
+        $datas = $this->m->getDokter();
+        foreach ($datas->result() as $d ) {
+            $data[]=array(
+                $d->nama_pegawai,
+                $d->poli
+            );
+        }
+        $out = array(
+            'data'=>$data
+        );
+        echo json_encode($out);
+        
+    }
     
 
 }
