@@ -24,20 +24,23 @@
 	<script type="text/javascript">
 		$(document).ready(function (){
             
-            var opt = {
+            Highcharts.chart('char',{
                 chart:{
                     type:'pie'
                 },
-                series:[{}]
-            };
-
-            Highcharts.ajax({
-                url:'<?php echo base_url('admin/getPenyakit');?>'
-                success:function(data){
-                    opt.series[0].data = data;
-                    Highcharts.Chart('char', opt);
-                }
-            })
+                title:{
+                    text:'Data Penyakit'
+                },
+                subtitle:{
+                    text:'Banyak penyakit dalam bulan <?php echo date('M');?>'
+                },
+                series:[<?php foreach ($data->result() as $d ) {?>
+                    {
+                        name:'<?php echo $d->diagnosa;?>',
+                        y:12
+                    },
+                <?php }?>]
+            });
         
     });
         </script>

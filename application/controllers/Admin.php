@@ -16,8 +16,9 @@ class Admin extends CI_Controller {
     
     public function index()
     {
+        $data['data'] = $this->m->getPenyakit();
         $this->load->view('admHeader');
-        $this->load->view('admin/dashboard');
+        $this->load->view('admin/dashboard',$data);
         // $this->load->view('admFooter');
         
     }
@@ -177,11 +178,11 @@ class Admin extends CI_Controller {
     function getPenyakit()
     {
         $data = $this->m->getPenyakit();
-        $arr = array();
+        // $arr = array();
         foreach ($data->result() as $d ) {
             $arr[]=array(
-                'name'=>$d->diagnosa,
-                'y'=>12
+                name=>$d->diagnosa,
+                y=>12
             );
         }
         
