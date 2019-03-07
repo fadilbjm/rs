@@ -146,6 +146,11 @@ class M extends CI_Model {
         return $q;
     }
 
+    function getPenyakit()
+    {
+        $q = $this->db->get('t_rajal');
+        return $q;
+    }
     ### FUNGSI TEST!!!!!!! ###
     function tes()
     {
