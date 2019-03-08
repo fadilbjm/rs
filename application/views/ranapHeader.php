@@ -35,6 +35,13 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo base_url('Ranap/pasien');?>">Data Pasien RS</a>
                 </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="#">Data Kamar</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">

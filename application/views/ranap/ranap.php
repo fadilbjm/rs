@@ -3,8 +3,8 @@
 <?php echo form_open('admin/addRanap');?>
 <!-- kalo ada data dari pasien -->
 <?php
-if(isset($px)){
-    foreach($px->result() as $d){
+if(isset($data)){
+    foreach($data->result() as $d){
 ?>
 
     <!-- <div class="col-lg-6"> -->
@@ -13,7 +13,7 @@ if(isset($px)){
             <label for="rm">No. RM</label>
             <input type="text"
                 class="form-control form-control-sm" name="rm" id="rm" value="<?php echo $d->no_rm;?>" autocomplete="off" placeholder="">
-                <a href="<?php base_url('admin/pasien');?>"><button>Pilih Pasien Dari Daftar</button></a>
+                <a href="<?php base_url('ranap/pasien');?>"><button>Pilih Pasien Dari Daftar</button></a>
             </div>
             <div class="form-group">
             <label for="nama">Nama Pasien</label>
@@ -23,22 +23,22 @@ if(isset($px)){
             <div class="form-group">
             <label for="umur">Tgl Lahir</label>
             <input type="date"
-                class="form-control" name="umur" id="umur" autocomplete="off" value="<?php echo $d->tgl_lahir;?>" placeholder="">
+                class="form-control" name="umur" id="umur" autocomplete="off" value="<?php echo $d->tgl_lahir;?>" placeholder="" required>
                 
             </div>
             <div class="form-group">
               <label for="hp">Nomor Handphone</label>
               <input type="tel"
-                class="form-control" name="hp" id="hp" autocomplete="off" value="<?php echo $d->telpon;?>" placeholder="">
+                class="form-control" name="hp" id="hp" autocomplete="off" value="<?php echo $d->telpon;?>" placeholder="" required>
             </div>
             <div class="form-group">
             <label for="pendidikan">Pendidikan/Pekerjaan</label>
             <input type="text"
-                class="form-control" name="pendidikan" id="pendidikan" autocomplete="off" placeholder="">
+                class="form-control" name="pendidikan" id="pendidikan" autocomplete="off" placeholder="" required>
             </div>
             <div class="form-group">
             <label for="alamat">ALamat</label>
-            <textarea class="form-control" name="alamat" id="alamat"  rows="3"><?php echo $d->alamat;?></textarea>
+            <textarea class="form-control" name="alamat" id="alamat"  rows="3" required><?php echo $d->alamat;?></textarea>
             </div>
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-info active">
@@ -51,7 +51,7 @@ if(isset($px)){
             <div class="form-group">
               <label for="penanggung">Nama Penanggung Jawab</label>
               <input type="text"
-                  class="form-control form-control-sm" name="penanggung" id="penanggung" value="<?php echo $d->nama_wali;?>" autocomplete="off" placeholder="">
+                  class="form-control form-control-sm" name="penanggung" id="penanggung" value="<?php echo $d->nama_wali;?>" autocomplete="off" placeholder="" required>
             </div>
             <hr>
             <label for="jkjkkjk">* Jika bersalin</label>
@@ -89,7 +89,7 @@ if(isset($px)){
             <label for="rm">No. RM</label>
             <input type="text"
                 class="form-control form-control-sm" name="rm" id="rm" autocomplete="off" placeholder="">
-                <a href="<?php base_url('admin/pasien');?>"><button>Pilih Pasien Dari Daftar</button></a>
+                <a href="<?php base_url('ranap/pasien');?>"><button>Pilih Pasien Dari Daftar</button></a>
             </div>
             <div class="form-group">
             <label for="nama">Nama Pasien</label>

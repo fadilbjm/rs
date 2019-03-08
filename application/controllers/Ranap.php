@@ -43,11 +43,18 @@ class Ranap extends CI_Controller {
    public function regisranap()
    {
        $uri =$this->uri->segment(3);
-        $this->load->view('ranapHeader');
-        
-            $data['px']= $this->m->getDetail($uri);
+        if($uri==""){
+            $this->load->view('ranapHeader');
+            $this->load->view('ranap/ranap');
+            $this->load->view('ranapFooter');
+            
+        }else {
+            $data['data'] = $this->m->getDetail($uri);
+            $this->load->view('ranapHeader');
             $this->load->view('ranap/ranap', $data);
             $this->load->view('ranapFooter');
+            
+        }
          
    }
 
