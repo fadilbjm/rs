@@ -136,6 +136,8 @@ class M extends CI_Model {
 
     function getPasienRanap()
     {
+        $this->db->order_by('tgl_masuk', 'desc');
+        
         $q=$this->db->get('t_ranap');
         return $q;
     }

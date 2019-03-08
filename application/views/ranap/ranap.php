@@ -42,10 +42,10 @@ if(isset($data)){
             </div>
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-info active">
-                    <input type="radio" name="jk" id="jk" autocomplete="off" required>Laki-laki
+                    <input type="radio" name="jk" id="jk" autocomplete="off" value="L" required>Laki-laki
                 </label>
                 <label class="btn btn-info">
-                    <input type="radio" name="jk" id="jk" autocomplete="off" required>Perempuan
+                    <input type="radio" name="jk" id="jk" autocomplete="off" value="P" required>Perempuan
                 </label>
             </div>
             <div class="form-group">
@@ -106,35 +106,35 @@ if(isset($data)){
             <div class="form-group">
             <label for="umur">Tgl Lahir</label>
             <input type="date"
-                class="form-control" name="umur" id="umur" autocomplete="off" placeholder="">
+                class="form-control" name="umur" id="umur" autocomplete="off" placeholder="" required>
                 
             </div>
             <div class="form-group">
               <label for="hp">Nomor Handphone</label>
               <input type="tel"
-                class="form-control" name="hp" id="hp" maxlength="14" autocomplete="off" placeholder="">
+                class="form-control" name="hp" id="hp" maxlength="14" autocomplete="off" placeholder=""required>
             </div>
             <div class="form-group">
             <label for="pendidikan">Pendidikan/Pekerjaan</label>
             <input type="text"
-                class="form-control" name="pendidikan" id="pendidikan" autocomplete="off" placeholder="">
+                class="form-control" name="pendidikan" id="pendidikan" autocomplete="off" placeholder="" required>
             </div>
             <div class="form-group">
             <label for="alamat">ALamat</label>
-            <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
+            <textarea class="form-control" name="alamat" id="alamat" rows="3" required></textarea>
             </div>
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-info active">
-                    <input type="radio" name="jk" id="jk" autocomplete="off" checked>Laki-laki
+                    <input type="radio" name="jk" id="jk" autocomplete="off" value="L" required>Laki-laki
                 </label>
                 <label class="btn btn-info">
-                    <input type="radio" name="jk" id="jk" autocomplete="off">Perempuan
+                    <input type="radio" name="jk" id="jk" autocomplete="off" value="P" required>Perempuan
                 </label>
             </div>
             <div class="form-group">
               <label for="penanggung">Nama Penanggung Jawab</label>
               <input type="text"
-                  class="form-control form-control-sm" name="penanggung" id="penanggung" autocomplete="off" placeholder="">
+                  class="form-control form-control-sm" name="penanggung" id="penanggung" autocomplete="off" required placeholder="">
             </div>
             <div class="form-group">
               <label for="dokter">Dokter Penanggung Jawab</label>

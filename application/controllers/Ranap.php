@@ -42,10 +42,11 @@ class Ranap extends CI_Controller {
 
    public function regisranap()
    {
+       $data['dokter'] = $this->m->getDokter();
        $uri =$this->uri->segment(3);
         if($uri==""){
             $this->load->view('ranapHeader');
-            $this->load->view('ranap/ranap');
+            $this->load->view('ranap/ranap',$data);
             $this->load->view('ranapFooter');
             
         }else {
@@ -100,7 +101,7 @@ class Ranap extends CI_Controller {
                $k->jk,
                $k->telpon,
                $k->dokter,
-               '<a href="ranap/keluar"><button class="btn btn-sm btn-success">Check Out</button></a>'.
+               '<a href="ranap/keluar"><button class="btn btn-sm btn-success">Check Out</button></a> '.
                '<a href="ranap/detail/'.$k->id_ranap.'"><button class="btn btn-sm btn-info">Detail</button></a>'
            );
        }
