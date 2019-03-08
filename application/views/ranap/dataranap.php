@@ -5,7 +5,9 @@
         <th>Tanggal Masuk</th>
         <th>No. RM</th>
         <th>Nama Pasien</th>
-        <th>Askes</th>
+        <th>Gender</th>
+        <th>No. HP</th>
+        <th>Dokter</th>
         <th></th>
     </tr>
 </thead>
@@ -42,7 +44,7 @@
 		$(document).ready(function (){
 			$('#mytable').DataTable({
                 dataLength:5,
-                ajax:'<?php echo base_url('ranap/getranapanak');?>'
+                ajax:'<?php echo base_url('ranap/getlistranap');?>'
             });
             // ambil();
 

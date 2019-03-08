@@ -134,23 +134,13 @@ class M extends CI_Model {
         return $q;
     }
 
-    function getPasienRanap($rm)
+    function getPasienRanap()
     {
-        $q=$this->db->get_where('t_pasien',array('no_rm'=>$rm));
+        $q=$this->db->get('t_ranap');
         return $q;
     }
 
-    function getRanapAnak()
-    {
-        $q = $this->db->get('t_igdanak');
-        return $q;
-    }
-
-    function getPenyakit()
-    {
-        $q = $this->db->get('t_rajal');
-        return $q;
-    }
+    
     ### FUNGSI TEST!!!!!!! ###
     function tes()
     {
