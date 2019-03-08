@@ -7,7 +7,7 @@ if(isset($data)){
     foreach($data->result() as $d){
 ?>
 
-    <!-- <div class="col-lg-6"> -->
+    
         <div class="jumbotron">
             <div class="form-group">
             <label for="rm">No. RM</label>
@@ -80,12 +80,7 @@ if(isset($data)){
             </div>
             <button type="submit" class="btn btn-primary">Input Data</button>
         </div>
-    <!-- </div>
-    <div class="col-md-6">
-        
-
-        akhir kalo ada data dari psien
-    </div> -->
+    
 <?php
     }
 }else {
@@ -163,12 +158,7 @@ if(isset($data)){
             </div>
             <button type="submit" class="btn btn-primary">Input Data</button>
         </div>
-    <!-- </div>
-    <div class="col-md-6">
-        
-
-        akhir kalo ada data dari psien
-    </div> -->
+    
     <?php
 }
         echo form_close();?>
