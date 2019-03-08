@@ -1,7 +1,7 @@
 
                 <!-- end content -->
                 <!-- </div> -->
-                </div>
+                <!-- </div> -->
     </div>  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -10,10 +10,6 @@
     <script src="/rs/aset/js/bootstrap.js"></script>
     <script src="/rs/aset/js/custom.js"></script>
     <script src="/rs/aset/js/datatables.js"></script>
-	<script>
-		$(document).ready(function (){
-			$('#my').DataTable();
-		});
-	</script>
+	
   </body>
 </html>

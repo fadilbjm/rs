@@ -68,6 +68,8 @@ class Admin extends CI_Controller {
     function tes()
     {
         ###
+        echo $this->db->join('t_plo', 'no = adf', 'left');
+        
     }
 
     function procReg()
@@ -177,17 +179,7 @@ class Admin extends CI_Controller {
 
     function getPenyakit()
     {
-        $data = $this->m->getPenyakit();
-        // $arr = array();
-        foreach ($data->result() as $d ) {
-            $arr[]=array(
-                name=>$d->diagnosa,
-                y=>12
-            );
-        }
         
-        
-        echo json_encode($arr);
     }
 
     

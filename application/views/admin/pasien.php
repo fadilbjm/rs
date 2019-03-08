@@ -153,29 +153,8 @@
             });
             // ambil();
 
-        function ambil(){
-            $.ajax({
-                type: "ajax",
-                url: "<?php echo base_url('admin/get');?>",
-                async: false,
-                dataType: "json",
-                success: function (data) {
-                    var html ="";
-                    var i;
-                    for(i=0;i<data.length;i++){
-                        html += '<tr>'+
-                                '<td>'+data[i].no_rm+'</td>'+
-                                '<td>'+data[i].nama+'</td>'+
-                                '<td>'+data[i].no_bpjs+'</td>'+
-                                '<td>'+data[i].jk+'</td>'+
-                                '<td>'+data[i].telpon+'</td>'+
-                                '</tr>';
-                    }
-                    $('#hasil').html(html);
-                }
             });
-        }
-		});
+        
 	</script>
 </body>
 </html>

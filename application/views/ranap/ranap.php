@@ -3,8 +3,8 @@
 <?php echo form_open('admin/addRanap');?>
 <!-- kalo ada data dari pasien -->
 <?php
-if(isset($data)){
-    foreach($data->result() as $d){
+if(isset($px)){
+    foreach($px->result() as $d){
 ?>
 
     <!-- <div class="col-lg-6"> -->
@@ -18,22 +18,18 @@ if(isset($data)){
             <div class="form-group">
             <label for="nama">Nama Pasien</label>
             <input type="text"
-                class="form-control form-control-sm" name="nama" id="nama" autocomplete="off" placeholder="" required>
+                class="form-control form-control-sm" name="nama" id="nama" autocomplete="off" value="<?php echo $d->nama;?>" placeholder="" required>
             </div>
             <div class="form-group">
-            <label for="umur">Umur</label>
-            <input type="number"
-                class="form-control" name="umur" id="umur" autocomplete="off" placeholder="">
-                <select name="umur1" id="umur1">
-                    <option value="tahun">Tahun</option>
-                    <option value="bulan">Bulan</option>
-                    <option value="hari">Hari</option>
-                </select>
+            <label for="umur">Tgl Lahir</label>
+            <input type="date"
+                class="form-control" name="umur" id="umur" autocomplete="off" value="<?php echo $d->tgl_lahir;?>" placeholder="">
+                
             </div>
             <div class="form-group">
               <label for="hp">Nomor Handphone</label>
               <input type="tel"
-                class="form-control" name="hp" id="hp" autocomplete="off" placeholder="">
+                class="form-control" name="hp" id="hp" autocomplete="off" value="<?php echo $d->telpon;?>" placeholder="">
             </div>
             <div class="form-group">
             <label for="pendidikan">Pendidikan/Pekerjaan</label>
@@ -42,20 +38,20 @@ if(isset($data)){
             </div>
             <div class="form-group">
             <label for="alamat">ALamat</label>
-            <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
+            <textarea class="form-control" name="alamat" id="alamat"  rows="3"><?php echo $d->alamat;?></textarea>
             </div>
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-info active">
-                    <input type="radio" name="jk" id="jk" autocomplete="off" checked>Laki-laki
+                    <input type="radio" name="jk" id="jk" autocomplete="off" required>Laki-laki
                 </label>
                 <label class="btn btn-info">
-                    <input type="radio" name="jk" id="jk" autocomplete="off">Perempuan
+                    <input type="radio" name="jk" id="jk" autocomplete="off" required>Perempuan
                 </label>
             </div>
             <div class="form-group">
               <label for="penanggung">Nama Penanggung Jawab</label>
               <input type="text"
-                  class="form-control form-control-sm" name="penanggung" id="penanggung" autocomplete="off" placeholder="">
+                  class="form-control form-control-sm" name="penanggung" id="penanggung" value="<?php echo $d->nama_wali;?>" autocomplete="off" placeholder="">
             </div>
             <hr>
             <label for="jkjkkjk">* Jika bersalin</label>
@@ -101,14 +97,10 @@ if(isset($data)){
                 class="form-control form-control-sm" name="nama" id="nama" autocomplete="off" placeholder="" required>
             </div>
             <div class="form-group">
-            <label for="umur">Umur</label>
-            <input type="number"
+            <label for="umur">Tgl Lahir</label>
+            <input type="date"
                 class="form-control" name="umur" id="umur" autocomplete="off" placeholder="">
-                <select name="umur1" id="umur1">
-                    <option value="tahun">Tahun</option>
-                    <option value="bulan">Bulan</option>
-                    <option value="hari">Hari</option>
-                </select>
+                
             </div>
             <div class="form-group">
               <label for="hp">Nomor Handphone</label>

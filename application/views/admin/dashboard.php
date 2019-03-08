@@ -23,23 +23,39 @@
     <script src="/rs/aset/js/highcharts.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function (){
-            
             Highcharts.chart('char',{
                 chart:{
                     type:'pie'
                 },
                 title:{
-                    text:'Data Penyakit'
+                    text:'Skala Penyakit'
                 },
                 subtitle:{
-                    text:'Banyak penyakit dalam bulan <?php echo date('M');?>'
+                    text:'bulan'
                 },
-                series:[<?php foreach ($data->result() as $d ) {?>
-                    {
-                        name:'<?php echo $d->diagnosa;?>',
-                        y:12
-                    },
-                <?php }?>]
+                series:[
+                    <?php
+                    $koma="";
+                    $jum = $data->num_rows();
+                    foreach ($data->result() as $w ) {
+                        
+                            if($w>$jum){
+                                    echo "{
+                                        name:'".$w->diagnosa."',
+                                        y:".rand(0,20)."
+                                    }";
+                            }else {
+                                echo "{
+                                    name:'".$w->diagnosa."',
+                                    y:".rand(0,20)."
+                                },";
+                            }
+                        
+                    }
+                    
+?>
+                
+                }]
             });
         
     });

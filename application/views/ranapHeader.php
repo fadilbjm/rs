@@ -25,14 +25,12 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo base_url('Ranap');?>">Dashboard</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('Ranap/igdanak');?>">RANAP IGD Anak</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('Ranap/igdibu');?>">RANAP IGD Ibu</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('Ranap/pasienranap');?>">Data Pasien Ranap</a>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rawat Inap</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="<?php echo base_url('ranap/regisranap');?>">Registrasi Rawat Inap</a>
+                        <a class="dropdown-item" href="<?php echo base_url('ranap/listranap');?>">Data Pasien Rawat Inap</a>
+                    </div>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo base_url('Ranap/pasien');?>">Data Pasien RS</a>
