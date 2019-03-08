@@ -19,17 +19,6 @@
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
 </div>
 
 <script src="/rs/aset/js/jquery.js"></script>

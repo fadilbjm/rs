@@ -8,7 +8,6 @@ class Ranap extends CI_Controller {
     {
         $this->load->view('ranapHeader');
         $this->load->view('ranap/dashboard');
-        $this->load->view('ranapFooter');
         
     }
 
