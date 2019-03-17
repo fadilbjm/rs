@@ -7,20 +7,14 @@
                 <div class="form-group">
                     <input type="hidden" name="nama" value="<?php echo $this->uri->segment(4);?>">
                     <label for="rm">No. Rekam Medis</label>
-                    <input type="text" class="form-control" name="rm" id="rm" aria-describedby="helpId" placeholder="" value="<?php echo $this->uri->segment(3); ?>">
+                    <input type="text" class="form-control" name="rm" id="rm" aria-describedby="helpId" placeholder="" value="<?php echo $this->uri->segment(3); ?>" required>
                     <div class="form-group">
                     <label for="keluhan">Keluhan</label>
-                    <textarea class="form-control" name="keluhan" id="keluhan" rows="3"></textarea>
+                    <textarea class="form-control" name="keluhan" id="keluhan" rows="3" required></textarea>
                     </div>
                     <div class="form-group">
                     <label for="poli">Poli</label>
-                    <select class="form-control" name="poli" id="poli">
-                        <?php
-foreach ($poli->result() as $p ) {
-    echo "<option value='$p->nama_poli'>$p->nama_poli</option>";
-}
-                        ?>
-                    </select>
+                    <!-- poli udah dihapus -->
                     <div class="form-group">
                       <label for="dokter">Dokter</label>
                       <select class="form-control" name="dokter" id="dokter">

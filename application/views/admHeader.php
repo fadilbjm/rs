@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Admin &middot; RSB Ibunda</title>
+    <title>Admin &middot; RSIA Ibunda</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,7 +26,7 @@
                     <a class="nav-link" href="<?php echo base_url('admin');?>">Dashboard</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url('admin/registrasi');?>">Registrasi RAJAL</a>
+                    <a class="nav-link" href="<?php echo base_url('admin/registrasi');?>">Registrasi Pasien Rawat Jalan</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo base_url('admin/pasien');?>">Pasien</a>

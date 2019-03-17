@@ -21,44 +21,6 @@
     <script src="/rs/aset/js/custom.js"></script>
     <script src="/rs/aset/js/datatables.js"></script>
     <script src="/rs/aset/js/highcharts.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function (){
-            Highcharts.chart('char',{
-                chart:{
-                    type:'pie'
-                },
-                title:{
-                    text:'Skala Penyakit'
-                },
-                subtitle:{
-                    text:'bulan'
-                },
-                series:[
-                    <?php
-                    $koma="";
-                    $jum = $data->num_rows();
-                    foreach ($data->result() as $w ) {
-                        
-                            if($w>$jum){
-                                    echo "{
-                                        name:'".$w->diagnosa."',
-                                        y:".rand(0,20)."
-                                    }";
-                            }else {
-                                echo "{
-                                    name:'".$w->diagnosa."',
-                                    y:".rand(0,20)."
-                                },";
-                            }
-                        
-                    }
-                    
-?>
-                
-                }]
-            });
-        
-    });
-        </script>
+	
   </body>
 </html>

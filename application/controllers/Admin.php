@@ -16,9 +16,9 @@ class Admin extends CI_Controller {
     
     public function index()
     {
-        $data['data'] = $this->m->getPenyakit();
+        
         $this->load->view('admHeader');
-        $this->load->view('admin/dashboard',$data);
+        $this->load->view('admin/dashboard');
         // $this->load->view('admFooter');
         
     }
