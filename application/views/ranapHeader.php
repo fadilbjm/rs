@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/rs/aset/css/bootstrap.css">
     <link rel="stylesheet" href="/rs/aset/css/custom.css">
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 	<link rel="stylesheet" href="/rs/aset/css/datatables.css">
   </head>
   <body>
@@ -38,7 +38,7 @@
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Data Kamar</a>
+                        <a class="dropdown-item" href="<?php echo base_url('ranap/ruang');?>">Data Kamar</a>
                         <a class="dropdown-item" href="#">Action 2</a>
                     </div>
                 </li>

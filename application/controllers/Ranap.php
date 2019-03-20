@@ -66,13 +66,9 @@ class Ranap extends CI_Controller {
            'tgl_lahir'=>$this->input->post('umur'),
            'telpon'=>$this->input->post('hp'),
            'jk'=>$this->input->post('jk'),
-           'pendidikan'=>$this->input->post('pendidikan'),
            'alamat'=>$this->input->post('alamat'),
            'nama_wali'=>$this->input->post('penanggung'),
            'dokter'=>$this->input->post('dokter'),
-           'bersalin_tgl'=>$this->input->post('tglbersalin'),
-           'bersalin_jam'=>$this->input->post('jambersalin'),
-           'bersalin_anak'=>$this->input->post('anakke'),
 
        );
 
@@ -108,6 +104,43 @@ class Ranap extends CI_Controller {
        echo json_encode($out);
    }
 
+
+   public function ruang()
+   {
+        $this->load->view('ranapHeader');
+        $this->load->view('ranap/ruang');
+        
+   }
+   function getRuang()
+   {
+       $ruang = $this->m->getUniversal('t_kamar');
+       $bed = array();
+       foreach($ruang->result() as $q){
+           $bed[] = array(
+                $q->nama_kamar,
+                $q->tipe,
+                '0',
+                '0',
+                $q->bed,
+                anchor('ranap/edtruang/'.$q->id_kamar, '<button class="btn btn-sm btn-outline-warning"><i class="fas fa-pencil-alt    "></i> Edit</button>')
+           );
+       }
+       $data=array('data'=>$bed);
+       echo json_encode($data);
+   }
+
+   function addrooms()
+   {
+       $data=array(
+           'nama_kamar'=>$this->input->post('nama'),
+           'bed'=>$this->input->post('bed'),
+           'tipe'=>$this->input->post('tipe')
+       );
+       $this->db->insert('t_kamar', $data);
+       
+       redirect('ranap/ruang');
+       
+   }
 
 
 }

@@ -142,6 +142,12 @@ class M extends CI_Model {
         return $q;
     }
 
+    function getUniversal($table)
+    {
+        $q = $this->db->get($table);
+        return $q;
+    }
+
     
     ### FUNGSI TEST!!!!!!! ###
     function tes()
