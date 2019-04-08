@@ -41,7 +41,16 @@ class Ranap extends CI_Controller {
 
    public function regisranap()
    {
+        // hitung sisa kamar
+        /* $dkamar = $this->db->get('t_kamar');
+        foreach ($dkamar->result() as $d ) {
+            
+        } */
+        // end
+        $data['kamar'] = $this->db->get('t_kamar');
+
        $data['dokter'] = $this->m->getDokter();
+
        $uri =$this->uri->segment(3);
         if($uri==""){
             $this->load->view('ranapHeader');
@@ -64,11 +73,13 @@ class Ranap extends CI_Controller {
            'no_rm'=>$this->input->post('rm'),
            'nama_pasien'=>$this->input->post('nama'),
            'tgl_lahir'=>$this->input->post('umur'),
-           'telpon'=>$this->input->post('hp'),
+           'hp'=>$this->input->post('hp'),
            'jk'=>$this->input->post('jk'),
-           'alamat'=>$this->input->post('alamat'),
-           'nama_wali'=>$this->input->post('penanggung'),
+           'p_jawab'=>$this->input->post('penanggung'),
            'dokter'=>$this->input->post('dokter'),
+           'kamar'=>$this->input->post('kamar'),
+           'bpjs'=>$this->input->post('bpjs'),
+           'status'=>'ada'
 
        );
 
@@ -94,15 +105,36 @@ class Ranap extends CI_Controller {
                $k->no_rm,
                $k->nama_pasien,
                $k->jk,
-               $k->telpon,
+               $k->hp,
                $k->dokter,
-               '<a href="ranap/keluar"><button class="btn btn-sm btn-success">Check Out</button></a> '.
-               '<a href="ranap/detail/'.$k->id_ranap.'"><button class="btn btn-sm btn-info">Detail</button></a>'
+               '<a href="'.base_url('ranap/keluar/'.$k->id_ranap).'"><button class="btn btn-sm btn-success">Check Out</button></a> '.
+               '<a href="'.base_url('ranap/detail/'.$k->id_ranap).'" target="_blank"><button class="btn btn-sm btn-info">Detail</button></a><br>'.
+               '<a href="'.base_url('kesalahan').'"><button class="btn btn-sm btn-danger"><i class="fas fa-bug    "></i> Lapor Kesalahan</button></a>'
            );
        }
        $out = array('data'=>$rr);
        echo json_encode($out);
    }
+
+   function getListRanap2()
+   {
+       $data = $this->m->getPasienRanap2();
+       $rr = array();
+       foreach ($data->result() as $k ) {
+           $rr[] = array(
+               $k->tgl_keluar,
+               $k->no_rm,
+               $k->nama_pasien,
+               $k->jk,
+               $k->hp,
+               $k->dokter,
+               '<a href="'.base_url('kesalahan').'"><button class="btn btn-sm btn-danger"><i class="fas fa-bug    "></i> Lapor Kesalahan</button></a>'
+           );
+       }
+       $out = array('data'=>$rr);
+       echo json_encode($out);
+   }
+
 
 
    public function ruang()
@@ -113,7 +145,8 @@ class Ranap extends CI_Controller {
    }
    function getRuang()
    {
-       $ruang = $this->m->getUniversal('t_kamar');
+       $ruang = $this->db->get('t_kamar');
+
        $bed = array();
        foreach($ruang->result() as $q){
            $bed[] = array(
@@ -142,7 +175,74 @@ class Ranap extends CI_Controller {
        
    }
 
+   function keluar()
+   {
+       date_default_timezone_set('asia/makassar');
+       $uri = $this->uri->segment(3);
+       $where = array('id_ranap'=>$uri);
+       $data = array('status'=>'pulang',
+                'tgl_keluar'=>date('Y-m-d H:i:s')        
+    );
+       $this->db->update('t_ranap', $data, $where);
+       
+       redirect('ranap/listranap');
+       
+   }
 
+   function detail()
+   {
+       $uri = $this->uri->segment(3);
+       $w =array('id_ranap'=>$uri);
+       $data = $this->m->getUniversal('t_ranap',$w);
+       foreach ($data->result() as $p ) {
+           echo "<table border='1'>
+                <tr>
+                    <th>ID RANAP</th>
+                    <th>NOMOR RM</th>
+                    <th>NAMA PASIEN</th>
+                    <th>GENDER</th>
+                    <th>KAMAR</th>
+                    <th>TGL LAHIR</th>
+                    <th>TGL INAP MASUK</th>
+                    <th>DOKTER</th>
+                    <th>NO. BPJS</th>
+                    <th>PENANGGUNG JAWAB PASIEN</th>
+                    <th>PASIEN MENULAR?</th>
+                    <th>NO. HP</th>
+                    <th>KETERANGAN</th>
+                    <th>PENGGUNA</th>
+                </tr>
+
+                <tr>
+                    <td>$p->id_ranap</td>
+                    <td>$p->no_rm</td>
+                    <td>$p->nama_pasien</td>
+                    <td>$p->jk</td>
+                    <td>$p->kamar</td>
+                    <td>$p->tgl_lahir</td>
+                    <td>$p->tgl_masuk</td>
+                    <td>$p->dokter</td>
+                    <td>$p->bpjs</td>
+                    <td>$p->p_jawab</td>
+                    <td>$p->menular</td>
+                    <td>$p->hp</td>
+                    <td>$p->ket</td>
+                    <td>$p->user</td>
+                </tr>
+           </table>";
+        }
+        echo "<a href='javascript:window.close()'><button><h3>Kembali</h3></button></a>";
+   }
+
+//    menghitung jumkah sisa kamar
+   function hitungKamar()
+   {
+    $dkamar = $this->db->get('t_kamar');
+    foreach ($dkamar->result() as $d ) {
+        $dranap = $this->db->query("SELECT COUNT(kamar) AS jum FROM t_ranap WHERE kamar = '$d->nama_kamar'");
+        echo $d->bed - $dranap->row()->jum;
+    }
+   }
 }
 
 /* End of file Ranap.php */

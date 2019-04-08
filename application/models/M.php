@@ -136,18 +136,36 @@ class M extends CI_Model {
 
     function getPasienRanap()
     {
-        $this->db->order_by('tgl_masuk', 'desc');
+        $this->db->where('status', 'ada');
         
+        $this->db->order_by('tgl_masuk', 'desc');
         $q=$this->db->get('t_ranap');
         return $q;
     }
-
-    function getUniversal($table)
+    function getPasienRanap2()
     {
-        $q = $this->db->get($table);
+        $this->db->where('status', 'pulang');
+        $this->db->order_by('tgl_masuk', 'desc');
+        $q = $this->db->get('t_ranap');
         return $q;
     }
 
+    function getUniversal($table,$where)
+    {
+        $q = $this->db->get_where($table,$where);
+        return $q;
+    }
+
+    function countRooms()
+    {
+        
+    }
+
+    ### LOGIN THINGS ###
+    function login($where)
+    {
+        return $this->db->get_where('t_pegawai',$where);
+    }
     
     ### FUNGSI TEST!!!!!!! ###
     function tes()

@@ -9,6 +9,7 @@ if(isset($data)){
 
     
         <div class="jumbotron">
+            <input type="hidden" name="bpjs" value="<?php echo $d->no_bpjs;?>">
             <div class="form-group">
             <label for="rm">No. RM</label>
             <input type="text"
@@ -31,15 +32,7 @@ if(isset($data)){
               <input type="tel"
                 class="form-control" name="hp" id="hp" autocomplete="off" maxlength="14" value="<?php echo $d->telpon;?>" placeholder="" required>
             </div>
-            <div class="form-group">
-            <label for="pendidikan">Pendidikan/Pekerjaan</label>
-            <input type="text"
-                class="form-control" name="pendidikan" id="pendidikan" autocomplete="off" placeholder="" required>
-            </div>
-            <div class="form-group">
-            <label for="alamat">ALamat</label>
-            <textarea class="form-control" name="alamat" id="alamat"  rows="3" required><?php echo $d->alamat;?></textarea>
-            </div>
+            
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-info active">
                     <input type="radio" name="jk" id="jk" autocomplete="off" value="L" required>Laki-laki
@@ -60,23 +53,16 @@ if(isset($data)){
 
               </select>
             </div>
-            <hr>
-            <label for="jkjkkjk">* Jika bersalin</label>
             <div class="form-group">
-              <label for="tglbersalin">Tanggal</label>
-              <input type="date"
-                  class="form-control form-control-sm" name="tglbersalin" id="tglbersalin" autocomplete="off" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="jambersalin">Pukul</label>
-              <input type="time"
-                class="form-control" name="jambersalin" id="jambersalin" autocomplete="off" placeholder="">
-              <small id="helpId" class="form-text text-muted">JAM : MENIT AM/PM (AM dari jam 1 malam sampai jam 12 siang, PM dari jam 1 siang sampai jam 12 malam)</small>
-            </div>
-            <div class="form-group">
-              <label for="anakke">Anak ke</label>
-              <input type="number"
-                class="form-control" name="anakke" id="anakke" autocomplete="off" placeholder="">
+              <label for="kamar">Kamar</label>
+              <select class="form-control" name="kamar" id="kamar">
+                <option selected>--- Pilih Kamar ---</option>
+                <?php
+foreach ($kamar->result() as $o ) {
+        echo "<option value='$o->nama_kamar'>$o->nama_kamar</option>";
+}
+                ?>
+              </select>
             </div>
             <button type="submit" class="btn btn-primary">Input Data</button>
         </div>
@@ -109,15 +95,7 @@ if(isset($data)){
               <input type="tel"
                 class="form-control" name="hp" id="hp" maxlength="14" autocomplete="off" placeholder=""required>
             </div>
-            <div class="form-group">
-            <label for="pendidikan">Pendidikan/Pekerjaan</label>
-            <input type="text"
-                class="form-control" name="pendidikan" id="pendidikan" autocomplete="off" placeholder="" required>
-            </div>
-            <div class="form-group">
-            <label for="alamat">ALamat</label>
-            <textarea class="form-control" name="alamat" id="alamat" rows="3" required></textarea>
-            </div>
+            
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-info active">
                     <input type="radio" name="jk" id="jk" autocomplete="off" value="L" required>Laki-laki
@@ -138,23 +116,16 @@ if(isset($data)){
                 <option value="koder">koder</option>
               </select>
             </div>
-            <hr>
-            <label for="jkjkkjk">* Jika bersalin</label>
             <div class="form-group">
-              <label for="tglbersalin">Tanggal</label>
-              <input type="date"
-                  class="form-control form-control-sm" name="tglbersalin" id="tglbersalin" autocomplete="off" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="jambersalin">Pukul</label>
-              <input type="time"
-                class="form-control" name="jambersalin" id="jambersalin" autocomplete="off" placeholder="">
-              <small id="helpId" class="form-text text-muted">JAM : MENIT AM/PM (AM dari jam 1 malam sampai jam 12 siang, PM dari jam 1 siang sampai jam 12 malam)</small>
-            </div>
-            <div class="form-group">
-              <label for="anakke">Anak ke</label>
-              <input type="number"
-                class="form-control" name="anakke" id="anakke" autocomplete="off" placeholder="">
+              <label for="kamar">Kamar</label>
+              <select class="form-control" name="kamar" id="kamar">
+                <option selected>--- Pilih Kamar ---</option>
+                <?php
+foreach ($kamar->result() as $o ) {
+        echo "<option value='$o->nama_kamar'>$o->nama_kamar</option>";
+}
+                ?>
+              </select>
             </div>
             <button type="submit" class="btn btn-primary">Input Data</button>
         </div>
