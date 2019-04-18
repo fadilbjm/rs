@@ -13,8 +13,6 @@
                     <textarea class="form-control" name="keluhan" id="keluhan" rows="3" required></textarea>
                     </div>
                     <div class="form-group">
-                    <label for="poli">Poli</label>
-                    <!-- poli udah dihapus -->
                     <div class="form-group">
                       <label for="dokter">Dokter</label>
                       <select class="form-control" name="dokter" id="dokter">
@@ -79,6 +77,7 @@
 
 
                 <!-- end content copy dari sini -->
+                </main>
                 </div>
         </div>
     </div>  

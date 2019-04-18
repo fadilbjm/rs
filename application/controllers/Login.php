@@ -38,13 +38,29 @@ class Login extends CI_Controller {
             'username' => $user,
             'password' => $pass
         );
-        $db = $this->m->login($where)->num_rows();
-        if($db > 0){
-            echo 'suc';
+        $db = $this->m->login($where);
+        if($db->num_rows() > 0){
+            // echo 'suc';
+            $perm = "";
+            $user = "";
+            foreach ($db->result() as $f ) {
+                $perm = $f->posisi;
+                $user = $f->nama_pegawai;
+            }
+            $this->session->set_userdata(array('status' => 'login', 'perm' => $perm, 'user' => $user));
+            // echo $this->session->userdata('status')." ".$this->session->userdata('perm').anchor(base_url('logout'),'LOGOUT');
+            redirect(base_url($perm));
         }
         else {
-            echo 'fail';
+            redirect('login?stat=wrong');
         }
+    }
+
+    function logout()
+    {
+        
+        $this->session->sess_destroy();
+        redirect('login');
     }
 
 }
